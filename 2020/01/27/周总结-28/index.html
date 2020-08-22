@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="分类和回归分类和回归的区别在于输出变量的类型。">
+<meta name="description" content="生活No matter what you do,the results will last 考完研以l后 过得有点丧 对未来不是很有把握">
 <meta property="og:type" content="article">
-<meta property="og:title" content="复试面试问题(3)">
-<meta property="og:url" content="http://yoursite.com/2020/04/21/复试面试问题-3/index.html">
+<meta property="og:title" content="周总结(28)">
+<meta property="og:url" content="http://yoursite.com/2020/01/27/周总结-28/index.html">
 <meta property="og:site_name" content="TinaCristal&#39;s Blog">
-<meta property="og:description" content="分类和回归分类和回归的区别在于输出变量的类型。">
+<meta property="og:description" content="生活No matter what you do,the results will last 考完研以l后 过得有点丧 对未来不是很有把握">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-22T04:28:33.894Z">
+<meta property="og:updated_time" content="2020-08-22T15:57:36.541Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="复试面试问题(3)">
-<meta name="twitter:description" content="分类和回归分类和回归的区别在于输出变量的类型。">
+<meta name="twitter:title" content="周总结(28)">
+<meta name="twitter:description" content="生活No matter what you do,the results will last 考完研以l后 过得有点丧 对未来不是很有把握">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/21/复试面试问题-3/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/27/周总结-28/">
 
 
 
 
 
-  <title>复试面试问题(3) | TinaCristal's Blog</title>
+  <title>周总结(28) | TinaCristal's Blog</title>
   
 
 
@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/21/复试面试问题-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/27/周总结-28/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TinaCristal">
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">复试面试问题(3)</h1>
+          <h1 class="post-title" itemprop="name headline">周总结(28)</h1>
         
 
         <div class="post-meta">
@@ -313,8 +313,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-21T10:46:00+08:00">
-                2020-04-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-27T14:33:00+08:00">
+                2020-01-27
               </time>
             
 
@@ -336,8 +336,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/复试准备/" itemprop="url" rel="index">
-                    <span itemprop="name">复试准备</span>
+                  <a href="/categories/周总结/" itemprop="url" rel="index">
+                    <span itemprop="name">周总结</span>
                   </a>
                 </span>
 
@@ -378,27 +378,17 @@
       
 
       
-        <h2 id="分类和回归"><a href="#分类和回归" class="headerlink" title="分类和回归"></a>分类和回归</h2><p>分类和回归的区别在于输出变量的类型。<br><a id="more"></a><br>定量输出称为回归，或者说是连续变量预测；<br>定性输出称为分类，或者说是离散变量预测。</p>
-<p>预测明天的气温是多少度，这是一个回归任务；<br>预测明天是阴、晴还是雨，就是一个分类任务。</p>
-<p>. 神经网络用于分类和回归:</p>
-<p>用于回归：最后一层有m个神经元，每个神经元输出一个标量，m个神经元的输出可以看做向量 v，现全部连到一个神经元上，则这个神经元输出wv+b，是一个连续值，可以处理回归问题，跟上面 Linear Regression 思想一样。</p>
-<p>用于N分类：现在这m个神经元最后连接到 N 个神经元，就有 N 组w值不同的 wv+b，同理可以归一化（比如用 softmax ）变成<br>N个类上的概率。</p>
-<h2 id="caffe技巧"><a href="#caffe技巧" class="headerlink" title="caffe技巧"></a>caffe技巧</h2><p>（1）尽量使用多层fliter尺寸小的卷积层代替一层filter较大的卷积层。</p>
-<pre><code>因为使用多层filter较小的卷积层所能观察到的区域大小和一层filter较大的卷积层是相同的，但是前者可以看到更加抽象的特征，提取的特征表达性能更佳。
-
-此外，前者引入的参数规模相比后者更小。比如，使用3层filter为3X3的卷积层代替1层filter为7X7的卷积层，假设输入的volume为C个通道，则前者参数
-
-个数为3×(C×(3×3×C))=27C^2，而后者为C×(7×7×C)=49C^2，明显前者引入的参数更少。
-</code></pre><p>   （2）为什么使用padding？</p>
-<pre><code>使用padding的好处是使得卷积前后的图像尺寸保持相同，可以保持边界的信息。一般padding的大小为P=(F-1)/2，其中F为filter的尺寸。如果不使用
-
- paddding，则要仔细跟踪图像尺寸的变化，确保每一层filter和stride正确的被使用。
-</code></pre><p>   （3）为什么stride一般设为1？</p>
-<pre><code>stride设为1实际表现效果更好，将下采样的工作全部交给池化层。
-</code></pre><p>   （4）输入层（input layer）尺寸一般应该能被2整除很多次，比如32（CIFAR-10）,64,96（STL-10），224（common ImageNet ConvNets），384和512。</p>
-<p>   （5）尽量使用filter较小（3x3 or 至多 5x5）的卷积层，如果要使用较大的filter（比如7x7），一般也只在第一个卷积层。</p>
-<p>   （6）有时候由于参数太多，内存限制，会在第一个卷积层使用较大filter（7x7）和stride（2）（参考 ZF Net），或者filter（11x11），stride（4）</p>
-<p><a href="https://blog.csdn.net/zxyhhjs2017/article/details/78605283" target="_blank" rel="noopener">https://blog.csdn.net/zxyhhjs2017/article/details/78605283</a><br><a href="https://blog.csdn.net/yangdashi888/article/details/77918311" target="_blank" rel="noopener">https://blog.csdn.net/yangdashi888/article/details/77918311</a><br><a href="https://blog.csdn.net/rocling/article/details/89010773" target="_blank" rel="noopener">https://blog.csdn.net/rocling/article/details/89010773</a></p>
+        <h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><p>No matter what you do,the results will last</p>
+<p>考完研以l后 过得有点丧</p>
+<p>对未来不是很有把握<br><a id="more"></a><br>对自己不是很有自信</p>
+<p>每天想努力多学一点</p>
+<p>却总是泡肥皂剧</p>
+<p>不想跟别人比</p>
+<p>只想跟以前的自己比</p>
+<p>不管会不会有好的结果</p>
+<p>总是要向前</p>
+<p>义无反顾</p>
+<p>错过了一些学习机会 不能再错过了</p>
 
       
     </div>
@@ -423,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/21/复试准备问题-2/" rel="next" title="复试面试问题(2)">
-                <i class="fa fa-chevron-left"></i> 复试面试问题(2)
+              <a href="/2020/01/27/python学习笔记-四/" rel="next" title="python学习笔记(四）">
+                <i class="fa fa-chevron-left"></i> python学习笔记(四）
               </a>
             
           </div>
@@ -433,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/22/周总结-32/" rel="prev" title="2011-2">
-                2011-2 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/27/ython/" rel="prev" title="python学习笔记(五)">
+                python学习笔记(五) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -517,7 +507,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-count">443</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -528,7 +518,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -588,7 +578,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类和回归"><span class="nav-number">1.</span> <span class="nav-text">分类和回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#caffe技巧"><span class="nav-number">2.</span> <span class="nav-text">caffe技巧</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生活"><span class="nav-number">1.</span> <span class="nav-text">生活</span></a></li></ol></div>
             
 
           </div>

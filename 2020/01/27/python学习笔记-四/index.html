@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="python函数嵌套1234567891011121314151617181920212223242526python，函数嵌套，到底是个什么东东？很少有人用，但是，有时确实会用：def multiplier(factor):    def multiplyByFactor(number):          return number*factor    return multiplyByFac">
+<meta name="description" content="python函数嵌套">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python学习笔记(四）">
 <meta property="og:url" content="http://yoursite.com/2020/01/27/python学习笔记-四/index.html">
 <meta property="og:site_name" content="TinaCristal&#39;s Blog">
-<meta property="og:description" content="python函数嵌套1234567891011121314151617181920212223242526python，函数嵌套，到底是个什么东东？很少有人用，但是，有时确实会用：def multiplier(factor):    def multiplyByFactor(number):          return number*factor    return multiplyByFac">
+<meta property="og:description" content="python函数嵌套">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://ask.qcloudimg.com/http-save/developer-news/gs2twtfmf0.png?imageView2/2/w/1620">
-<meta property="og:updated_time" content="2020-01-27T09:13:53.051Z">
+<meta property="og:updated_time" content="2020-08-22T16:05:51.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python学习笔记(四）">
-<meta name="twitter:description" content="python函数嵌套1234567891011121314151617181920212223242526python，函数嵌套，到底是个什么东东？很少有人用，但是，有时确实会用：def multiplier(factor):    def multiplyByFactor(number):          return number*factor    return multiplyByFac">
+<meta name="twitter:description" content="python函数嵌套">
 <meta name="twitter:image" content="https://ask.qcloudimg.com/http-save/developer-news/gs2twtfmf0.png?imageView2/2/w/1620">
 
 
@@ -315,7 +315,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-27T14:07:02+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-27T14:07:00+08:00">
                 2020-01-27
               </time>
             
@@ -358,7 +358,8 @@
       
 
       
-        <h2 id="python函数嵌套"><a href="#python函数嵌套" class="headerlink" title="python函数嵌套"></a>python函数嵌套</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">python，函数嵌套，到底是个什么东东？</span><br><span class="line"></span><br><span class="line">很少有人用，但是，有时确实会用：</span><br><span class="line"></span><br><span class="line">def multiplier(factor):</span><br><span class="line">    def multiplyByFactor(number):</span><br><span class="line">          return number*factor</span><br><span class="line">    return multiplyByFactor</span><br><span class="line"></span><br><span class="line">python程序，一个函数在另外一个函数的里面，外层的函数返回的是里层函数。也就是函数本身被返回了，返回的是函数（听起来和C语言的一些东东相似）。</span><br><span class="line">注意，返回的函数还可以访问它的定义所在的作用域，也就是它带着它的环境信息奥。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">看看下面的用法，就会有被水浇的感觉了：</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;double = multiplier(2)</span><br><span class="line">&gt;&gt;&gt;double(5)</span><br><span class="line">10</span><br><span class="line"> </span><br><span class="line">&gt;&gt;&gt;triple=multiplier(3)</span><br><span class="line">&gt;&gt;&gt;triple(3)</span><br><span class="line">9</span><br><span class="line"> </span><br><span class="line">&gt;&gt;&gt;multiplier(5)(4)</span><br><span class="line">&gt;&gt;&gt;20</span><br></pre></td></tr></table></figure>
+        <h2 id="python函数嵌套"><a href="#python函数嵌套" class="headerlink" title="python函数嵌套"></a>python函数嵌套</h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">python，函数嵌套，到底是个什么东东？</span><br><span class="line"></span><br><span class="line">很少有人用，但是，有时确实会用：</span><br><span class="line"></span><br><span class="line">def multiplier(factor):</span><br><span class="line">    def multiplyByFactor(number):</span><br><span class="line">          return number*factor</span><br><span class="line">    return multiplyByFactor</span><br><span class="line"></span><br><span class="line">python程序，一个函数在另外一个函数的里面，外层的函数返回的是里层函数。也就是函数本身被返回了，返回的是函数（听起来和C语言的一些东东相似）。</span><br><span class="line">注意，返回的函数还可以访问它的定义所在的作用域，也就是它带着它的环境信息奥。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">看看下面的用法，就会有被水浇的感觉了：</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;double = multiplier(2)</span><br><span class="line">&gt;&gt;&gt;double(5)</span><br><span class="line">10</span><br><span class="line"> </span><br><span class="line">&gt;&gt;&gt;triple=multiplier(3)</span><br><span class="line">&gt;&gt;&gt;triple(3)</span><br><span class="line">9</span><br><span class="line"> </span><br><span class="line">&gt;&gt;&gt;multiplier(5)(4)</span><br><span class="line">&gt;&gt;&gt;20</span><br></pre></td></tr></table></figure>
 <p>每次调用外层函数，它内部的函数都会被重新绑定，factor变量每次都有一个新的值。</p>
 <h2 id="python-turtle库"><a href="#python-turtle库" class="headerlink" title="python turtle库"></a>python turtle库</h2><p>urtle库是Python语言中一个很流行的绘制图像的函数库</p>
 <p>  使用之前需要导入库：import turtle</p>
@@ -422,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/27/周总结-30/" rel="prev" title="周总结(30)">
-                周总结(30) <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/27/周总结-28/" rel="prev" title="周总结(28)">
+                周总结(28) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -506,7 +507,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-count">443</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -517,7 +518,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

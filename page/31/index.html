@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/紫书例题7-2-最大乘积/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/29/c-复习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TinaCristal">
@@ -300,7 +300,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/03/紫书例题7-2-最大乘积/" itemprop="url">紫书例题7-2 最大乘积</a></h1>
+                <a class="post-title-link" href="/2018/10/29/c-复习/" itemprop="url">c++复习（set，lambada表达式）</a></h1>
         
 
         <div class="post-meta">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-03T08:54:00+08:00">
-                2018-11-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T10:42:52+08:00">
+                2018-10-29
               </time>
             
 
@@ -322,28 +322,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/紫书/" itemprop="url" rel="index">
-                    <span itemprop="name">紫书</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -373,15 +351,11 @@
 
       
         
-          <p>输入n个元素组成的序列s，你需要找出一个乘积最大的连续子序列。如果这个最大的成绩不是正数，应输入-1（表示无解）。输入0结束输入。1&lt;=n&lt;=18,-10&lt;=Si&lt;=10。<br>样例输入：</p>
-<p>3</p>
-<p>2 4 -3</p>
-<p>样例输出：</p>
-<p>8</p>
-<p>20<br>
+          <h2 id="set容器"><a href="#set容器" class="headerlink" title="set容器"></a>set容器</h2><p>set容器；（有个小知识点，set容器，元素只能出现一次，并且插入可以从小到大排序）<br>set是一个集合 和康托前辈的一样 集合中的元素不重复 且集合中的元素是有序的（自动有序化） TY菌介绍说其内部实质是一个平衡树</p>
+<p>set不是数组 只能通过迭代器（iterator）把里面的元素倒出来 迭代器相当于是指针 扫描的是地址 因此输出的时候需要用*variation<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/11/03/紫书例题7-2-最大乘积/#more" rel="contents">
+            <a class="btn" href="/2018/10/29/c-复习/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -432,7 +406,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/紫书例题7-1-除法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/28/字符串-号放开头/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TinaCristal">
@@ -451,7 +425,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/02/紫书例题7-1-除法/" itemprop="url">紫书例题7-1 除法</a></h1>
+                <a class="post-title-link" href="/2018/10/28/字符串-号放开头/" itemprop="url">把*号放开头</a></h1>
         
 
         <div class="post-meta">
@@ -463,8 +437,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-02T21:43:00+08:00">
-                2018-11-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-28T16:39:58+08:00">
+                2018-10-28
               </time>
             
 
@@ -473,28 +447,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/紫书/" itemprop="url" rel="index">
-                    <span itemprop="name">紫书</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -524,156 +476,10 @@
 
       
         
-          <p>输入正整数n，用0~9这10个数字不重复组成两个五位数abcde和fghij，使得abcde/fghij的商为n，按顺序输出所有结果。如果没有找到则输出“There are no solutions for N.”。这里2&lt;=n&lt;=79。</p>
+          <p>一个字符串只包含<em>和数字，请把</em>都放开头<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/11/02/紫书例题7-1-除法/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/POJ3273-Monthly-Expense/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TinaCristal">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TinaCristal's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/02/POJ3273-Monthly-Expense/" itemprop="url">POJ3273 Monthly Expense</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-02T20:54:00+08:00">
-                2018-11-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/POJ/" itemprop="url" rel="index">
-                    <span itemprop="name">POJ</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>分期：将N个账款分割成M个财务期，使得每个分期账款和的最大值最小。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/02/POJ3273-Monthly-Expense/#more" rel="contents">
+            <a class="btn" href="/2018/10/28/字符串-号放开头/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -724,7 +530,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/POJ3258/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/28/map操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TinaCristal">
@@ -743,7 +549,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/02/POJ3258/" itemprop="url">POJ3258 River Hopscotch</a></h1>
+                <a class="post-title-link" href="/2018/10/28/map操作/" itemprop="url">map操作</a></h1>
         
 
         <div class="post-meta">
@@ -755,8 +561,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-02T19:36:00+08:00">
-                2018-11-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-28T15:15:00+08:00">
+                2018-10-28
               </time>
             
 
@@ -778,8 +584,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/POJ/" itemprop="url" rel="index">
-                    <span itemprop="name">POJ</span>
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
                   </a>
                 </span>
 
@@ -816,12 +622,12 @@
 
       
         
-          <p>以条河长度为 L，河的起点(Start)和终点(End)分别有2块石头，S到E的距离就是L。</p>
-<p>河中有n块石头，每块石头到S都有唯一的距离</p>
-<p>问现在要移除m块石头（S和E除外），每次移除的是与当前最短距离相关联的石头，要求移除m块石头后，使得那时的最短距离尽可能大，输出那个最短距离。<br>
+          <p>map初始化<br>1、直接赋值</p>
+<pre><code>map[key]=value;
+</code></pre><p>2、用insert添加pair类型的元素<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/11/02/POJ3258/#more" rel="contents">
+            <a class="btn" href="/2018/10/28/map操作/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -872,7 +678,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/POJ3232-Acclerator/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/周总结-14/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TinaCristal">
@@ -891,7 +697,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/02/POJ3232-Acclerator/" itemprop="url">POJ3232 Acclerator</a></h1>
+                <a class="post-title-link" href="/2018/10/16/周总结-14/" itemprop="url">周总结(14)</a></h1>
         
 
         <div class="post-meta">
@@ -903,8 +709,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-02T11:33:00+08:00">
-                2018-11-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-16T09:45:00+08:00">
+                2018-10-16
               </time>
             
 
@@ -926,8 +732,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/poj/" itemprop="url" rel="index">
-                    <span itemprop="name">poj</span>
+                  <a href="/categories/周总结/" itemprop="url" rel="index">
+                    <span itemprop="name">周总结</span>
                   </a>
                 </span>
 
@@ -964,11 +770,10 @@
 
       
         
-          <p>有一个含有n辆车的车队，当前距离终点的距离已知，有m个加速器，每个加速器在一个时刻只能给一辆车用，一旦使用就会使得其速度由1变成k，加速器可以重复使用，问最快所有车辆到达终点的时间。</p>
-<p>思路：二分枚举所需的最短时间。<br>
+          <p>突然想有一种淡然的生活态度<br>觉得每天都是为自己热爱的事而奋斗<br>并不是给自己灌很多鸡汤<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/11/02/POJ3232-Acclerator/#more" rel="contents">
+            <a class="btn" href="/2018/10/16/周总结-14/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1019,7 +824,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/Drying/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/周总结-13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TinaCristal">
@@ -1038,7 +843,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/01/Drying/" itemprop="url">poj3104	Drying</a></h1>
+                <a class="post-title-link" href="/2018/10/12/周总结-13/" itemprop="url">周总结(13)</a></h1>
         
 
         <div class="post-meta">
@@ -1050,8 +855,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-01T21:04:00+08:00">
-                2018-11-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T14:29:00+08:00">
+                2018-10-12
               </time>
             
 
@@ -1073,8 +878,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/poj/" itemprop="url" rel="index">
-                    <span itemprop="name">poj</span>
+                  <a href="/categories/周总结/" itemprop="url" rel="index">
+                    <span itemprop="name">周总结</span>
                   </a>
                 </span>
 
@@ -1111,10 +916,13 @@
 
       
         
-          <p>有一些衣服，每件衣服有一定水量，有一个烘干机，每次可以烘一件衣服，每分钟可以烘掉k滴水。每件衣服没分钟可以自动蒸发掉一滴水，用烘干机烘衣服时不蒸发。问最少需要多少时间能烘干所有的衣服。<br>
+          <h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><p>前几天信誓旦旦说要把高数复习完</p>
+<p>结果国庆一直想着出去玩 </p>
+<p>于是高数下还没复习完</p>
+<p>是该收收心了<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/11/01/Drying/#more" rel="contents">
+            <a class="btn" href="/2018/10/12/周总结-13/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1165,7 +973,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/POJ2456-Aggressive-cows/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/周总结-十二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TinaCristal">
@@ -1184,7 +992,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/01/POJ2456-Aggressive-cows/" itemprop="url">POJ2456 Aggressive cows</a></h1>
+                <a class="post-title-link" href="/2018/09/30/周总结-十二/" itemprop="url">周总结(12)</a></h1>
         
 
         <div class="post-meta">
@@ -1196,8 +1004,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-01T19:41:00+08:00">
-                2018-11-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-30T23:22:00+08:00">
+                2018-09-30
               </time>
             
 
@@ -1219,8 +1027,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/poj/" itemprop="url" rel="index">
-                    <span itemprop="name">poj</span>
+                  <a href="/categories/周总结/" itemprop="url" rel="index">
+                    <span itemprop="name">周总结</span>
                   </a>
                 </span>
 
@@ -1257,165 +1065,20 @@
 
       
         
-          
-            <p>有N个<br>牛棚在x轴上,已知他们的坐标.FJ有C只奶牛,每只都必须安排在一个牛棚里,一个牛棚只能容纳一只.但是他们会互相攻击,所以要求距离最近的两个牛棚间的距离最大.</p>
-<p>2 &lt;= N &lt;= 100,000</p>
-<p>0 &lt;= xi &lt;= 1,000,000,000</p>
-<p>2 &lt;= C &lt;= N</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">逆向思维：</span><br><span class="line">注意问题中的“最小最大”(“最大最小”),这是使用二分求解的重要标志.</span><br><span class="line">最小最大</span><br><span class="line">最小距离为x时,放置的总牛数大于等于C</span><br><span class="line">找最大的yes(循环结束后的R)</span><br><span class="line">一个建议：如果你自己也搞不清最后结果是L还是R，可以保存满足的答案</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">int n,c; </span><br><span class="line">int a[100000];</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">bool isValid(int dis)&#123;</span><br><span class="line">	int last=0;</span><br><span class="line">	for(int i=1;i&lt;c;i++)</span><br><span class="line">&#123;int next=last+1;</span><br><span class="line">while(next&lt;n&amp;&amp;a[next]-a[last]&lt;dis) next++;</span><br><span class="line">if(next&gt;=n) return false;</span><br><span class="line">last=next;</span><br><span class="line">&#125;</span><br><span class="line">return true;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;c;</span><br><span class="line">	for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;a[i];</span><br><span class="line">	&#125; </span><br><span class="line">	sort(a,a+n);</span><br><span class="line">	int ans=0,mid;</span><br><span class="line">	int L=0,R=a[n-1]+1;</span><br><span class="line">	while(L&lt;=R)&#123;</span><br><span class="line">		mid=(L+R)/2; </span><br><span class="line">		if(isValid(mid))  &#123;</span><br><span class="line">			ans=mid;</span><br><span class="line">			L=mid+1; </span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			R=mid-1;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://ws1.sinaimg.cn/large/006wtREyly1fwssr8t5k2j30ea063aas.jpg" alt="image"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/例题5-4-反片语/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TinaCristal">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TinaCristal's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/31/例题5-4-反片语/" itemprop="url">例题5-4 反片语</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T22:45:00+08:00">
-                2018-10-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法入门经典/" itemprop="url" rel="index">
-                    <span itemprop="name">算法入门经典</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>将每个单词标准化加入set,再用Map统计次数<br>
+          <h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul>
+<li><p>理解了遗传算法，读懂了基于遗传算法的自动拼图的源码</p>
+</li>
+<li><p>看完了高数上册，在刷习题</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/31/例题5-4-反片语/#more" rel="contents">
+            <a class="btn" href="/2018/09/30/周总结-十二/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
-    </p></div>
+    </li></ul></div>
     
     
     
@@ -1459,7 +1122,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/freopen函数的使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/29/基于遗传算法的自动拼图-四）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TinaCristal">
@@ -1478,7 +1141,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/31/freopen函数的使用/" itemprop="url">freopen函数的使用</a></h1>
+                <a class="post-title-link" href="/2018/09/29/基于遗传算法的自动拼图-四）/" itemprop="url">基于遗传算法的自动拼图(四）</a></h1>
         
 
         <div class="post-meta">
@@ -1490,8 +1153,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T18:58:00+08:00">
-                2018-10-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-29T23:59:00+08:00">
+                2018-09-29
               </time>
             
 
@@ -1513,156 +1176,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ccf认证/" itemprop="url" rel="index">
-                    <span itemprop="name">ccf认证</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>当我们求解acm题目时，通常在设计好算法和程序后，要在调试环境（例如VC等）中运行程序，输入测试数据，当能得到正确运行结果后，才将程序提交到oj中。但由于调试往往不能一次成功，每次运行时，都要重新输入一遍测试数据，对于有大量输入数据的题目，输入数据需要花费大量时间。 </p>
-<pre><code>使用freopen函数可以解决测试数据输入问题，避免重复输入，不失为一种简单而有效的解决方法。 
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/31/freopen函数的使用/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/贪心算法-区间问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TinaCristal">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TinaCristal's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/31/贪心算法-区间问题/" itemprop="url">贪心算法-区间问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T18:13:00+08:00">
-                2018-10-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/MachineLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">MachineLearning</span>
                   </a>
                 </span>
 
@@ -1672,8 +1187,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/贪心法/" itemprop="url" rel="index">
-                    <span itemprop="name">贪心法</span>
+                  <a href="/categories/MachineLearning/项目/" itemprop="url" rel="index">
+                    <span itemprop="name">项目</span>
                   </a>
                 </span>
 
@@ -1710,10 +1225,482 @@
 
       
         
-          <p>已知N个事件的发生时刻和结束时刻（见下表，表中事件已按结束时刻升序排序）。一些在时间上没有重叠的事件，可以构成一个事件序列，如事件<br>{2，8，10}。事件序列包含的事件数目，称为该事件序列的长度。请编程找出一个最长的事件序列。<br>
+          <h2 id="拼图的主函数"><a href="#拼图的主函数" class="headerlink" title="拼图的主函数"></a>拼图的主函数</h2>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/31/贪心算法-区间问题/#more" rel="contents">
+            <a class="btn" href="/2018/09/29/基于遗传算法的自动拼图-四）/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/29/基于遗传算法的自动拼图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/基于遗传算法的自动拼图/" itemprop="url">基于遗传算法的自动拼图(三)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-29T23:49:00+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MachineLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">MachineLearning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MachineLearning/项目/" itemprop="url" rel="index">
+                    <span itemprop="name">项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="交叉配对"><a href="#交叉配对" class="headerlink" title="交叉配对"></a>交叉配对</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/29/基于遗传算法的自动拼图/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/29/基于遗传算法的自动拼图（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/基于遗传算法的自动拼图（二）/" itemprop="url">基于遗传算法的自动拼图(二)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-29T22:07:00+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MachineLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">MachineLearning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MachineLearning/项目/" itemprop="url" rel="index">
+                    <span itemprop="name">项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="适应度度量"><a href="#适应度度量" class="headerlink" title="适应度度量"></a>适应度度量</h2><p>两块拼图如果拼在一块的话 则Left-Right方向 相邻的两列色差较小。同理Top-down方向相邻两行的色差会较小<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/29/基于遗传算法的自动拼图（二）/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/基于遗传算法的自动拼图-一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/27/基于遗传算法的自动拼图-一）/" itemprop="url">基于遗传算法的自动拼图(一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-27T17:03:00+08:00">
+                2018-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MachineLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">MachineLearning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MachineLearning/项目/" itemprop="url" rel="index">
+                    <span itemprop="name">项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>参考自github项目 <a href="https://github.com/nemanja-m/gaps" target="_blank" rel="noopener">https://github.com/nemanja-m/gaps</a></p>
+<p>加了注释及自己的理解<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/27/基于遗传算法的自动拼图-一）/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1755,7 +1742,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/30/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/32/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/30/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/32/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1801,7 +1788,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-count">443</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1812,7 +1799,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

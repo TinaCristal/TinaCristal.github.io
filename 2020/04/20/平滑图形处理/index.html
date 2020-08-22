@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="一、何为图像噪声？噪声是妨碍人的感觉器官所接受信源信息理解的因素，是不可预测只能用概率统计方法认识的随机误差。 　　我们可以观察到噪声的特点：1&amp;gt;位置随机 2&amp;gt;大小不规则。我们将这种噪声称为随机噪声（random noise），这是一种非常常见的噪声类型。 　　二、噪声的类型 　　噪声可以借用随机过程以及概率密度函数（Probability Density Function，PDF）来">
+<meta name="description" content="一、何为图像噪声？噪声是妨碍人的感觉器官所接受信源信息理解的因素，是不可预测只能用概率统计方法认识的随机误差。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="平滑图形处理">
 <meta property="og:url" content="http://yoursite.com/2020/04/20/平滑图形处理/index.html">
 <meta property="og:site_name" content="TinaCristal&#39;s Blog">
-<meta property="og:description" content="一、何为图像噪声？噪声是妨碍人的感觉器官所接受信源信息理解的因素，是不可预测只能用概率统计方法认识的随机误差。 　　我们可以观察到噪声的特点：1&amp;gt;位置随机 2&amp;gt;大小不规则。我们将这种噪声称为随机噪声（random noise），这是一种非常常见的噪声类型。 　　二、噪声的类型 　　噪声可以借用随机过程以及概率密度函数（Probability Density Function，PDF）来">
+<meta property="og:description" content="一、何为图像噪声？噪声是妨碍人的感觉器官所接受信源信息理解的因素，是不可预测只能用概率统计方法认识的随机误差。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-21T09:29:04.515Z">
+<meta property="og:updated_time" content="2020-08-22T16:03:10.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="平滑图形处理">
-<meta name="twitter:description" content="一、何为图像噪声？噪声是妨碍人的感觉器官所接受信源信息理解的因素，是不可预测只能用概率统计方法认识的随机误差。 　　我们可以观察到噪声的特点：1&amp;gt;位置随机 2&amp;gt;大小不规则。我们将这种噪声称为随机噪声（random noise），这是一种非常常见的噪声类型。 　　二、噪声的类型 　　噪声可以借用随机过程以及概率密度函数（Probability Density Function，PDF）来">
+<meta name="twitter:description" content="一、何为图像噪声？噪声是妨碍人的感觉器官所接受信源信息理解的因素，是不可预测只能用概率统计方法认识的随机误差。">
 
 
 
@@ -313,7 +313,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-20T17:46:59+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-20T17:46:00+08:00">
                 2020-04-20
               </time>
             
@@ -356,8 +356,7 @@
       
 
       
-        <p>一、何为图像噪声？噪声是妨碍人的感觉器官所接受信源信息理解的因素，是不可预测只能用概率统计方法认识的随机误差。</p>
-<p>　　我们可以观察到噪声的特点：1&gt;位置随机 2&gt;大小不规则。我们将这种噪声称为随机噪声（random noise），这是一种非常常见的噪声类型。</p>
+        <p>一、何为图像噪声？噪声是妨碍人的感觉器官所接受信源信息理解的因素，是不可预测只能用概率统计方法认识的随机误差。<br><a id="more"></a><br>　　我们可以观察到噪声的特点：1&gt;位置随机 2&gt;大小不规则。我们将这种噪声称为随机噪声（random noise），这是一种非常常见的噪声类型。</p>
 <p>　　二、噪声的类型</p>
 <p>　　噪声可以借用随机过程以及概率密度函数（Probability Density Function，PDF）来描述，通常可采用其数组特征，即均值，方差，相关函数等。按照概率密度函数分为高斯噪声、瑞利噪声、伽马噪声、指数分布噪声、均匀分布噪声、脉冲噪声、泊松噪声等。有的噪声与图像信号的强度不相关，如图像传输过程引入的信道噪声、摄像机扫描噪声等，这种噪声称为加性噪声（additive noise）。常见的加性噪声按照概率密度函数特征分为短拖尾加性噪声（如均匀分布噪声）、中拖尾加性噪声（高斯分布噪声）、长拖尾加性噪声（如指数分布噪声）、脉冲噪声（如椒盐噪声、随机数脉冲噪声等）。</p>
 <p>　　有的噪声与图像信号有关，往往随着图像信号的变化而变化，如光照变化引起的噪声、飞机扫描图像中的噪声、电视扫描光栅中的相干噪声、斑点噪声等。这种噪声称为乘性噪声（multiplicative noise）。</p>
@@ -403,7 +402,7 @@ end</code> 　　</p>
 <p>　　</p>
 <p>　　</p>
 <p>　　例子：巴特沃斯低通滤波器</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>%巴特沃斯低通滤波器<br>I=imread(‘eight.tif’);<br>I1=imnoise(I,’salt &amp; pepper’);<br>figure,imshow(I1);<br>f=double(I1);<br>g=fft2(f);%傅里叶变换<br>g=fftshift(g);%直流分量移到频谱中心<br>[M,N]=size(g);%计算图像的高和宽<br>d0=50;nn=2;%截止频率为50的二阶巴特沃斯低通滤波器<br>m=round(M/2);n=round(N/2);%数据取整<br>for i=1:M<br>    for j=1:N<br>        d=sqrt((i-m)^2+(j-n)^2);%计算频率平面原点到各点的距离<br>        h=1/(1+0.414<em>(d/d0)^(2</em>nn));%传递公式<br>        result(i,j)=h*g(i,j);%滤波公式<br>    end<br>end<br>result=ifftshift(result);%直流分量移回到左上角<br>I2=ifft2(result);%傅里叶反变换<br>I3=uint8(real(I2));%取幅值并转换成8位无符号整数<br>figure,imshow(I3);</p>
+<p>%巴特沃斯低通滤波器<br>I=imread(‘eight.tif’);<br>I1=imnoise(I,’salt &amp; pepper’);<br>figure,imshow(I1);<br>f=double(I1);<br>g=fft2(f);%傅里叶变换<br>g=fftshift(g);%直流分量移到频谱中心<br>[M,N]=size(g);%计算图像的高和宽<br>d0=50;nn=2;%截止频率为50的二阶巴特沃斯低通滤波器<br>m=round(M/2);n=round(N/2);%数据取整<br>for i=1:M<br>    for j=1:N<br>        d=sqrt((i-m)^2+(j-n)^2);%计算频率平面原点到各点的距离<br>        h=1/(1+0.414<em>(d/d0)^(2</em>nn));%传递公式<br>        result(i,j)=h*g(i,j);%滤波公式<br>    end<br>end<br>result=ifftshift(result);%直流分量移回到左上角<br>I2=ifft2(result);%傅里叶反变换<br>I3=uint8(real(I2));%取幅值并转换成8位无符号整数<br>figure,imshow(I3);</p>
 <p>参考链接<a href="https://www.cnblogs.com/luyaoblog/p/7160948.html" target="_blank" rel="noopener">https://www.cnblogs.com/luyaoblog/p/7160948.html</a></p>
 
       
@@ -514,7 +513,7 @@ end</code> 　　</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-count">443</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -525,7 +524,7 @@ end</code> 　　</p>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
