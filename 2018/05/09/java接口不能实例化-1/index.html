@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="泛型,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="java接口可以实例化吗？接口不可以实例化。但是接口对象可以指向它的实现类对象。接口可以看做特殊的抽象类，只是所有的方法都是抽象方法（没有实现的方法），接口的方法都是默认public abstract的，所以不能被实例化。比如：List Set Map都是接口使用时先实现">
+<meta name="keywords" content="泛型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不能实例化类型list&lt;interval&gt;">
+<meta property="og:url" content="http://yoursite.com/2018/05/09/java接口不能实例化-1/index.html">
+<meta property="og:site_name" content="TinaCristal&#39;s Blog">
+<meta property="og:description" content="java接口可以实例化吗？接口不可以实例化。但是接口对象可以指向它的实现类对象。接口可以看做特殊的抽象类，只是所有的方法都是抽象方法（没有实现的方法），接口的方法都是默认public abstract的，所以不能被实例化。比如：List Set Map都是接口使用时先实现">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-09T12:57:35.468Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="不能实例化类型list&lt;interval&gt;">
+<meta name="twitter:description" content="java接口可以实例化吗？接口不可以实例化。但是接口对象可以指向它的实现类对象。接口可以看做特殊的抽象类，只是所有的方法都是抽象方法（没有实现的方法），接口的方法都是默认public abstract的，所以不能被实例化。比如：List Set Map都是接口使用时先实现">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/09/java接口不能实例化-1/">
+
+
+
+
+
+  <title>不能实例化类型list<interval> | TinaCristal's Blog</interval></title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinaCristal's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/09/java接口不能实例化-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">不能实例化类型list<interval></interval></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-09T20:52:00+08:00">
+                2018-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="java接口可以实例化吗？"><a href="#java接口可以实例化吗？" class="headerlink" title="java接口可以实例化吗？"></a>java接口可以实例化吗？</h2><p>接口不可以实例化。但是接口对象可以指向它的实现类对象。<br>接口可以看做特殊的抽象类，只是所有的方法都是抽象方法（没有实现的方法），接口的方法都是默认public abstract的，<br>所以不能被实例化。<br>比如：<br>List Set Map都是接口<br>使用时先实现<br><a id="more"></a></p>
+<p>List<string> list = new ArrayList&lt;&gt;();</string></p>
+<p>有点类似于指针的感觉了。Factory接口可以用来代表实现它的类。比如：<br>public interface thing;<br>public class fruit implements thing;<br>thing something = new fruit();<br>这个something指的就是水果。</p>
+<p>接口编程是为了实现多继承。</p>
+<p>、、、、、、、、、、、、、、、、</p>
+<p>以下转自：<a href="http://www.runoob.com/java/java-polymorphism.html" target="_blank" rel="noopener">http://www.runoob.com/java/java-polymorphism.html</a></p>
+<p>声明一个接口的变量（接口的引用）可以指向一个实现类（实现该接口的类）的实例，</p>
+<p>但是该接口的变量不能使用实现类中有、接口中没有的方法（实现类中没有重写的方法、自添加的方法），比如：</p>
+<p>public class InterfaceCat {<br>    public static void main(String[] args) {<br>      show(new Cat());  // 以 Cat 对象调用 show 方法<br>      show(new Dog());  // 以 Dog 对象调用 show 方法</p>
+<pre><code>Animal a = new Cat();  // 向上转型  
+</code></pre><p>//      a.eat();               // 调用的是 Cat 的 eat<br>//      Cat c = (Cat)a;        // 向下转型<br>//      c.work();        // 调用的是 Cat 的 catchMouse<br>      a.work();   //该处编译报错<br>  }  </p>
+<pre><code>public static void show(Animal a)  {
+  a.eat();  
+    // 类型判断
+    if (a instanceof Cat)  {  // 猫做的事情 
+        Cat c = (Cat)a;  
+        c.work();  
+    } else if (a instanceof Dog) { // 狗做的事情 
+        Dog c = (Dog)a;  
+        c.work();  
+    }  
+}  
+</code></pre><p>}</p>
+<p>abstract class Animal {<br>    abstract void eat();<br>//    abstract void work();  // 抽象类（接口）中没有work方法</p>
+<p>}  </p>
+<p>class Cat extends Animal {<br>    public void eat() {<br>        System.out.println(“吃鱼”);<br>    }<br>    public void work() {<br>        System.out.println(“抓老鼠”);<br>    }<br>}  </p>
+<p>class Dog extends Animal {<br>    public void eat() {<br>        System.out.println(“吃骨头”);<br>    }<br>    public void work() {<br>        System.out.println(“看家”);<br>    }<br>}</p>
+<p>输出结果为：</p>
+<p>吃鱼<br>抓老鼠<br>吃骨头<br>看家<br>吃鱼<br>抓老鼠</p>
+<p>对于多态，可以总结以下几点：</p>
+<p>一、使用父类类型的引用指向子类的对象；</p>
+<p>二、该引用只能调用父类中定义的方法和变量；</p>
+<p>三、如果子类中重写了父类中的一个方法，那么在调用这个方法的时候，将会调用子类中的这个方法；（动态连接、动态调用）;</p>
+<p>四、变量不能被重写（覆盖），”重写”的概念只针对方法，如果在子类中”重写”了父类中的变量，那么在编译时会报错。</p>
+<h2 id="Java中的泛型"><a href="#Java中的泛型" class="headerlink" title="Java中的泛型"></a>Java中的泛型</h2><p>泛型就是参数化类型，就是所操作的数据类型被指定为一个参数，这种类型可以在类接口和方法中创建，分别称之为泛型类，泛型接口，泛型方法</p>
+<h3 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h3><p>就是一个或者多个具有类型变量的类；如下：<br> public class Pair<t>{<br>    private T first;<br>    private T second;<br>    public Pair(){<br>      first = null;<br>      second = null;<br>    }<br>    public void setFirst(T first){<br>      this.first =   first;<br>    }<br>    public void setSecond(T second){<br>      this.second = second<br>    }<br>    public T getFirst(){<br>        return this.first;<br>    }<br>    public T getSecond(){<br>        return Second;<br>    }<br>  }<br>Pair类引入了一个类型变量T，将其放在”&lt;&gt;”里面；并且将其放在类名的后面，泛型类也可以有多个类型变量；<br>可以将泛型类看做是普通类的工厂；</t></p>
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><p>带有类型参数的简单方法；<br>泛型方法可以定义在普通类里面也可以定义在泛型类里面；<br>所谓的泛型方法要么就是返回值是一个泛型，要么就是参数是泛型；<br>class ArrayAlg{<br>  public static <t> T getMiddle(T[] a){<br>    return a[a.length/2]<br>  }<br>}</t></p>
+<h3 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h3><p>就是一个或者多个具有类型变量的接口<br>pulbic interface Collection<e> extends Iterable<e> {<br>Iterator<e> iterator();<br>}</e></e></e></p>
+<h2 id="约束和局限性："><a href="#约束和局限性：" class="headerlink" title="约束和局限性："></a>约束和局限性：</h2><p>使用java中的泛型时需要考虑一些限制，大多是限制都是由于类型擦除引起的；</p>
+<p><1>:不能用基本类型实例化类型参数<br>没有Pair<double>只有Pair<double></double></double></1></p>
+<p><2>:运行时类查询只适用于原始类型<br>虚拟机中的对象总有一个特定的非泛型类型。因此所有的类型查询只产生原始类型。例如：<br>if(a instanceof Pair<string>)//ERROR</string></2></p>
+<p><3>:不能创建参数化类型的数组：<br>Pair<string>[] table = new Pair<string>[10]//ERROR;<br>但是声明类型Pair<string>[]的变量仍是合法的；</string></string></string></3></p>
+<p><4>:Varargs警告：<br>由于java布置池泛型类型的数组；当我们向一个参数个数可变的方法 传递一个泛型类型的实例：<br>eg:</4></p>
+<p>public static <t> void addAll(Collection<t> coll,T…ts){<br>  for(T t:ts)coll.add(t);<br>}<br>实际上ts是一个数组，包含提供的所有实参。<br>Collection&lt;Pair<string>&gt; table = …;<br>Pair<string> pair1 = ….;<br>Pair<string> pair2 = ….;<br>Pair<string> pair3 = ….;<br>addAll(table,pair1,pair2);<br>为了调用这个方法，Java虚拟机必须建立一个Pair<string>数组；违反前面的规定；但是这种情况并不会报告错误仅仅会报告一个警告可以通过两种方式去消除它：<br>A:为addAll方法添加标注@SuppressWarning(“unchecked”).<br>B:@SafeVarargs直接标志addAll方法<br>@SafeVarags<br>public static <t> void addAll(Collection<t> coll,T…ts)</t></t></string></string></string></string></string></t></t></p>
+<h5 id="不能实例化类型参数"><a href="#不能实例化类型参数" class="headerlink" title=":不能实例化类型参数"></a><5>:不能实例化类型参数</5></h5><p>new T(…)，new T[]或者T.class都是不允许的;<br>但是可以通过反射加上一定的API便可实现泛型的实例化；<br><code>`</code>java<br>  public static <t> Pair<t> makePair(Class<t> cl){<br>      try{<br>          return new Pair&lt;&gt;(cl.newIntance(),cl.newInstance())<br>      }catch(Exception e){<br>        return null;<br>      }<br>  }<br>Pair<string> p = Pair.makePair(String.class)<br>类型擦除会让这个方法永远构造Object[2]数组；<br>如果数组仅仅作为一个类的私有实例域，就可以将这个数组声明为Object[],并在获取元素时进行类型转换。例如ArrayList就是这样实现的；</string></t></t></t></p>
+<p>Public class ArrayList<e>{<br>  Private Object[] elements;<br>  @SuppressWarning(‘unchecked’)<br>  public E get(int n){<br>      return (E) elements[n]}<br>   }<br>  Public void set(int n,E e){elements[n] = e};<br>  Public class ArrayList<e>{<br>       Private E[] elements;<br>       Public ArrayList(){<br>       Elements = (E[])new Object[10];//假像：类型擦除会使其无法差距<br>  }<br>}<br>编译时不会报错，但是当我们的程序执行时，当我们把Object[]引用赋值给T[]时就会报错；将会发生ClassCastException异常；<br>这种情况下我们可以利用反射：</e></e></p>
+<p>Public static <t extends comparable> T[] minmax(T…a){<br>  T[] mm = (T[])Array.newInstance(a.getClass().getComponentType(),2)<br>}</t></p>
+<p><6>泛型类的静态上下文中类型变量无效<br>不能在静态域或方法中引用类型变量（即泛型）；（即被static修饰的域或者方法）</6></p>
+<p><7>:不能抛出或者捕获泛型类的实例<br>既不能抛出也不能捕获泛型类的实例对象。实际上，甚至泛型类扩展Throwable都是不合法的；T extends Exception(Throwable)<br>Catch字句中不能使用类型变量；catch（T e）Error;<br>PS：可以消除已检查异常的检查：<br>Java异常处理的一个基本原则：必须为所有的已检查异常提供一个处理器；不过可以利用泛型消除这个限制；<br>当你必须捕获run中所有的已检查异常，将其包装到未检查异常中，因为run方法声明为不抛出任何已检查异常；<br>不过在这里我么你没有选择这种“包装”我们只是抛出异常，并“哄骗浏览器”让它认为这不会一个已检查异常；<br>通过使用泛型类，擦除，和@SuppertWarning标注就可以消除java类型系统的部分限制</7></p>
+<p><8>注意擦除后的冲突：<br>当泛型类型被擦除时，无法创建引发冲突的条件，如：<br>在某个泛型类中添加equals()方法，当我们给这个泛型类中间穿具体的类型时：<br>进过类型擦除之后equals(String o)方法变为equals(Object o);<br>所以此时从概念上讲：他有两个equals方法：<br>Boolean equals(String)<br>Boolean equals(Object)和Object.Equals(Object)方法冲突；<br>补救方法就是重命名引发错误的方法<br>另外一个原则：“想要支持擦除的转换，就需要强行限制一个类或类型变量不能同时成为两个接口类型的子类”而这两个接口是同一个接口的不同参数化；<br>例如下面的代码就是非法的</8></p>
+<p>Class Calendar implements Comparable<calendar>{…}<br>Class GregorianCalendar extends Calendar implements Comparable&lt; GregorianCalendar&gt;(Error)<br>GregorianCalendar会事先Comparable<calendar>和Comparable<gregoriancalendar><br>这是同一接口的不同参数化；这一限制和类型擦柱的关系不是十分明确；下列的非泛型的版本就是合法的；<br>原因：有可能与合成的桥方法产生冲突。实现了Comparable<x>的类可以获得一个桥方法；</x></gregoriancalendar></calendar></calendar></p>
+<p>Public int comparaTo(Object other){<br>  return compareTo(X) other<br>};<br>对于不同类型的;不能有两个这样的方法；</p>
+<p><9>泛型类型的继承规则：<br>例如：Employee和Manager。Pair<manager>和Pair<employee>之间没有任何关系；<br>无论S和T有什么关系，通常Pair<s>和Pair<t>之间都不会有什么联系；<br>继承泛型类<br>子类不是泛型类：需要给父类传递类型常量<br>当给父类传递的类型常量为String时，那么在父类中所有T都会被String替换！</t></s></employee></manager></9></p>
+<p>子类是泛型类：可以给父类传递类型常量，也可以传递类型变量</p>
+<p>参考自：<a href="https://www.jianshu.com/p/fa66f06b701b" target="_blank" rel="noopener">https://www.jianshu.com/p/fa66f06b701b</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/泛型/" rel="tag"># 泛型</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/07/tensorflow处理标注框/" rel="next" title="tensorflow处理标注框">
+                <i class="fa fa-chevron-left"></i> tensorflow处理标注框
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/10/eclipse自动提示和代码补全/" rel="prev" title="eclipse自动提示和代码补全">
+                eclipse自动提示和代码补全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg5Ny8xMzQzMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">TinaCristal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TinaCristal" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="is.yatingsun@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java接口可以实例化吗？"><span class="nav-number">1.</span> <span class="nav-text">java接口可以实例化吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的泛型"><span class="nav-number">2.</span> <span class="nav-text">Java中的泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型类"><span class="nav-number">2.1.</span> <span class="nav-text">泛型类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型方法"><span class="nav-number">2.2.</span> <span class="nav-text">泛型方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型接口"><span class="nav-number">2.3.</span> <span class="nav-text">泛型接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#约束和局限性："><span class="nav-number">3.</span> <span class="nav-text">约束和局限性：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不能实例化类型参数"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">:不能实例化类型参数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinaCristal</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

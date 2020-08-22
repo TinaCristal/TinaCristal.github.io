@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="有时候无法直接观察和查看多层网络,可视化是一个很重要的方法 数据可视化12345678910111213141516171819202122import numpy as npimport struct import matplotlib.pyplot as pltimport Imagefilename = &amp;apos;t10k-images-idx3-ubyte&amp;apos;binfile =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="caffe可视化总结">
+<meta property="og:url" content="http://yoursite.com/2018/05/22/caffe可视化/index.html">
+<meta property="og:site_name" content="TinaCristal&#39;s Blog">
+<meta property="og:description" content="有时候无法直接观察和查看多层网络,可视化是一个很重要的方法 数据可视化12345678910111213141516171819202122import numpy as npimport struct import matplotlib.pyplot as pltimport Imagefilename = &amp;apos;t10k-images-idx3-ubyte&amp;apos;binfile =">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe01/testData.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe02/cifar10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view01.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view03.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view04.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view05.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view06.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view07.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view08.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view09.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view11.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view12.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view13.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view14.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view15.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view16.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view18.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view19.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view20.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view21.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view22.png">
+<meta property="og:updated_time" content="2018-05-25T11:52:03.792Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="caffe可视化总结">
+<meta name="twitter:description" content="有时候无法直接观察和查看多层网络,可视化是一个很重要的方法 数据可视化12345678910111213141516171819202122import numpy as npimport struct import matplotlib.pyplot as pltimport Imagefilename = &amp;apos;t10k-images-idx3-ubyte&amp;apos;binfile =">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe01/testData.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/22/caffe可视化/">
+
+
+
+
+
+  <title>caffe可视化总结 | TinaCristal's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinaCristal's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/caffe可视化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">caffe可视化总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-22T21:55:00+08:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/caffe/" itemprop="url" rel="index">
+                    <span itemprop="name">caffe</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>有时候无法直接观察和查看多层网络,可视化是一个很重要的方法</p>
+<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import struct </span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import Image</span><br><span class="line"></span><br><span class="line">filename = &apos;t10k-images-idx3-ubyte&apos;</span><br><span class="line">binfile = open(filename, &apos;rb&apos;)</span><br><span class="line">    buf = binfile.read()</span><br><span class="line"></span><br><span class="line">    index = 0</span><br><span class="line">    magic, numImages, numRows, numColumns = struct.unpack_from(&apos;&gt;IIII&apos;, buf, index)</span><br><span class="line">    index += struct.calcsize(&apos;&gt;IIII&apos;)</span><br><span class="line"></span><br><span class="line">    for image in range(0, numImages):</span><br><span class="line">        im = struct.unpack_from(&apos;&gt;784B&apos;, buf, index)</span><br><span class="line">        index += struct.calcsize(&apos;&gt;784B&apos;)</span><br><span class="line"></span><br><span class="line">        im = np.array(im, dtype=&apos;uint8&apos;)</span><br><span class="line">        im = im.reshape(28, 28)</span><br><span class="line"></span><br><span class="line">        im = Image.fromarray(im)</span><br><span class="line">        im.save(&apos;data/mnist/mnist_train/train_%s.bmp&apos; % image, &apos;bmp&apos;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe01/testData.png" alt><br><a id="more"></a></p>
+<h2 id="模型可视化"><a href="#模型可视化" class="headerlink" title="模型可视化"></a>模型可视化</h2><p>cifar10的网络模型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd python</span><br><span class="line">python draw_net.py ../examples/cifar10/cifar10_quick.prototxt cifar10.png</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe02/cifar10.png" alt></p>
+<h2 id="网络权值可视化"><a href="#网络权值可视化" class="headerlink" title="网络权值可视化"></a>网络权值可视化</h2><p>​    对训练后的网络权值进行可视化可以判断模型的优劣及是否欠(过)拟合</p>
+<p>经过良好的训练的网络权值通常美观,光滑;反之为噪声图像,或者图案相关性太高,或者缺乏结构性…</p>
+<p>进行可视化的代码只需要读取训练后的网络结构和权值文件,将各层的权值数据投影到像素空间.</p>
+<p>主程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">close all;</span><br><span class="line">addpath(&apos;matlab&apos;);</span><br><span class="line"></span><br><span class="line">caffe.set_mode_cpu();</span><br><span class="line">model_dir = &apos;models/bvlc_reference_caffenet/&apos;;</span><br><span class="line">net_model = [model_dir &apos;deploy.prototxt&apos;];</span><br><span class="line">net_weights = [model_dir &apos;bvlc_reference_caffenet.caffemodel&apos;];</span><br><span class="line">phase = &apos;test&apos;; % run with phase test (so that dropout isn&apos;t applied)</span><br><span class="line"></span><br><span class="line">% Initialize a network</span><br><span class="line">net = caffe.Net(net_model, net_weights, phase);</span><br><span class="line"></span><br><span class="line">param_names=&#123;&apos;conv1&apos;,&apos;conv2&apos;,&apos;conv3&apos;,&apos;conv4&apos;,&apos;conv5&apos;&#125;;</span><br><span class="line">for i=1:length(param_names)</span><br><span class="line">    visualize_weight(net,param_names&#123;i&#125;,1);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>可视化函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function visualize_weight(net,param_name,space)</span><br><span class="line">w=net.params(param_name,1).get_data();</span><br><span class="line">size(w)</span><br><span class="line">nums=size(w,4);</span><br><span class="line">channels=size(w,3);</span><br><span class="line">width=size(w,2);</span><br><span class="line">count=nums*channels;</span><br><span class="line">n=ceil(sqrt(count));</span><br><span class="line">weight_map=zeros(n*(width+space),n*(width+space),&apos;uint8&apos;);</span><br><span class="line">w=w-min(w(:));</span><br><span class="line">w=w/max(w(:))*255;</span><br><span class="line">w=uint8(w);</span><br><span class="line">for i=0:count-1</span><br><span class="line">    c=mod(i,n);</span><br><span class="line">    r=floor(i/n);</span><br><span class="line">    j=mod(i,channels)+1;</span><br><span class="line">    k=floor(i/channels)+1;</span><br><span class="line">    weight_map(r*(width+space)+(1:width),c*(width+space)+(1:width))=w(:,:,j,k);</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">figure;</span><br><span class="line">imshow(weight_map);</span><br><span class="line">title(param_name);</span><br></pre></td></tr></table></figure>
+<p>结果:</p>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view01.png" alt></p>
+<p>当然每一个卷积层都可以进行可视化</p>
+<h2 id="层的特征可视化"><a href="#层的特征可视化" class="headerlink" title="层的特征可视化"></a>层的特征可视化</h2><p>在ipython notebook环境下运行</p>
+<p>设置环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">plt.rcParams[&apos;figure.figsize&apos;] = (10, 10)      </span><br><span class="line">plt.rcParams[&apos;image.interpolation&apos;] = &apos;nearest&apos;</span><br><span class="line">plt.rcParams[&apos;image.cmap&apos;] = &apos;gray&apos;  </span><br><span class="line">import sys</span><br><span class="line">caffe_root=&apos;./caffe/&apos; </span><br><span class="line">sys.path.insert(0, caffe_root + &apos;python&apos;)</span><br><span class="line"></span><br><span class="line">import caffe</span><br></pre></td></tr></table></figure>
+<p>下载模型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">if os.path.isfile(caffe_root + &apos;models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel&apos;):</span><br><span class="line">    print &apos;CaffeNet found.&apos;</span><br><span class="line">else:</span><br><span class="line">    print &apos;Downloading pre-trained CaffeNet model...&apos;</span><br><span class="line">    !../scripts/download_model_binary.py ../models/bvlc_reference_caffenet</span><br></pre></td></tr></table></figure>
+<p>下载网络和输入数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">caffe.set_mode_cpu()</span><br><span class="line">model_def = caffe_root + &apos;models/bvlc_reference_caffenet/deploy.prototxt&apos;</span><br><span class="line">model_weights = caffe_root + &apos;models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel&apos;</span><br><span class="line"></span><br><span class="line">net = caffe.Net(model_def,      </span><br><span class="line">                model_weights,  </span><br><span class="line">                caffe.TEST)</span><br></pre></td></tr></table></figure>
+<p>下载处理图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># load the mean ImageNet image (as distributed with Caffe) for subtraction</span><br><span class="line">mu = np.load(caffe_root + &apos;python/caffe/imagenet/ilsvrc_2012_mean.npy&apos;)</span><br><span class="line">mu = mu.mean(1).mean(1)  # average over pixels to obtain the mean (BGR) pixel values</span><br><span class="line">print &apos;mean-subtracted values:&apos;, zip(&apos;BGR&apos;, mu)</span><br><span class="line"></span><br><span class="line"># create transformer for the input called &apos;data&apos;</span><br><span class="line">transformer = caffe.io.Transformer(&#123;&apos;data&apos;: net.blobs[&apos;data&apos;].data.shape&#125;)</span><br><span class="line"></span><br><span class="line">transformer.set_transpose(&apos;data&apos;, (2,0,1))  # move image channels to outermost dimension</span><br><span class="line">transformer.set_mean(&apos;data&apos;, mu)            # subtract the dataset-mean value in each channel</span><br><span class="line">transformer.set_raw_scale(&apos;data&apos;, 255)      # rescale from [0, 1] to [0, 255]</span><br><span class="line">transformer.set_channel_swap(&apos;data&apos;, (2,1,0))  # swap channels from RGB to BGR</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print net.blobs[&apos;data&apos;].data.shape</span><br></pre></td></tr></table></figure>
+<p>输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(1, 3, 227, 227)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># set the size of the input (we can skip this if we&apos;re happy</span><br><span class="line"># with the default; we can also change it later, e.g., for different batch sizes)</span><br><span class="line">net.blobs[&apos;data&apos;].reshape(1,         # batch size</span><br><span class="line">                          3,         # 3-channel (BGR) images</span><br><span class="line">                          227, 227)  # image size is 227x227</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Load an image (that comes with Caffe) and perform the preprocessing we&apos;ve set up.</span><br><span class="line">image = caffe.io.load_image(caffe_root + &apos;examples/images/cat.jpg&apos;)</span><br><span class="line">transformed_image = transformer.preprocess(&apos;data&apos;, image)</span><br><span class="line">plt.imshow(image)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view02.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">net.blobs[&apos;data&apos;].data[...] = transformed_image</span><br><span class="line">output = net.forward()</span><br><span class="line"></span><br><span class="line">output_prob = output[&apos;prob&apos;][0]  # the output probability vector for the first image in the batch</span><br><span class="line"></span><br><span class="line">print &apos;predicted class is:&apos;, output_prob.argmax()</span><br></pre></td></tr></table></figure>
+<p>输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">predicted class is: 281</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 下载标签</span><br><span class="line">labels_file = caffe_root + &apos;data/ilsvrc12/synset_words.txt&apos;</span><br><span class="line">if not os.path.exists(labels_file):</span><br><span class="line">    !../data/ilsvrc12/get_ilsvrc_aux.sh</span><br><span class="line"></span><br><span class="line">labels = np.loadtxt(labels_file, str, delimiter=&apos;\t&apos;)</span><br><span class="line"></span><br><span class="line">print &apos;output label:&apos;, labels[output_prob.argmax()]</span><br></pre></td></tr></table></figure>
+<p>output label: n02123045 tabby, tabby cat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># for each layer, show the output shape</span><br><span class="line">for layer_name, blob in net.blobs.iteritems():</span><br><span class="line">    print layer_name + &apos;\t&apos; + str(blob.data.shape)</span><br></pre></td></tr></table></figure>
+<p>data (1, 3, 227, 227)<br>conv1 (1, 96, 55, 55)<br>pool1 (1, 96, 27, 27)<br>norm1 (1, 96, 27, 27)<br>conv2 (1, 256, 27, 27)<br>pool2 (1, 256, 13, 13)<br>norm2 (1, 256, 13, 13)<br>conv3 (1, 384, 13, 13)<br>conv4 (1, 384, 13, 13)<br>conv5 (1, 256, 13, 13)<br>pool5 (1, 256, 6, 6)<br>fc6 (1, 4096)<br>fc7 (1, 4096)<br>fc8 (1, 1000)<br>prob (1, 1000)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for layer_name, param in net.params.iteritems():</span><br><span class="line">    print layer_name + &apos;\t&apos; + str(param[0].data.shape), str(param[1].data.shape)</span><br></pre></td></tr></table></figure>
+<p>conv1 (96, 3, 11, 11) (96,)<br>conv2 (256, 48, 5, 5) (256,)<br>conv3 (384, 256, 3, 3) (384,)<br>conv4 (384, 192, 3, 3) (384,)<br>conv5 (256, 192, 3, 3) (256,)<br>fc6 (4096, 9216) (4096,)<br>fc7 (4096, 4096) (4096,)<br>fc8 (1000, 4096) (1000,)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">def vis_square(data):</span><br><span class="line">    &quot;&quot;&quot;Take an array of shape (n, height, width) or (n, height, width, 3) and visualize each (height, width) thing in a grid of size approx. sqrt(n) by sqrt(n)&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    # normalize data for display</span><br><span class="line">    data = (data - data.min()) / (data.max() - data.min())</span><br><span class="line"></span><br><span class="line">    # force the number of filters to be square</span><br><span class="line">    n = int(np.ceil(np.sqrt(data.shape[0])))</span><br><span class="line">    padding = (((0, n ** 2 - data.shape[0]),</span><br><span class="line">               (0, 1), (0, 1))                 # add some space between filters</span><br><span class="line">               + ((0, 0),) * (data.ndim - 3))  # don&apos;t pad the last dimension (if there is one)</span><br><span class="line">    data = np.pad(data, padding, mode=&apos;constant&apos;, constant_values=1)  # pad with ones (white)</span><br><span class="line"></span><br><span class="line">    # tile the filters into an image</span><br><span class="line">    data = data.reshape((n, n) + data.shape[1:]).transpose((0, 2, 1, 3) + tuple(range(4, data.ndim + 1)))</span><br><span class="line">    data = data.reshape((n * data.shape[1], n * data.shape[3]) + data.shape[4:])</span><br><span class="line"></span><br><span class="line">    plt.imshow(data); plt.axis(&apos;off&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># the parameters are a list of [weights]</span><br><span class="line">filters = net.params[&apos;conv1&apos;][0].data</span><br><span class="line">vis_square(filters.transpose(0, 2, 3, 1))</span><br><span class="line"># The first layer output, conv1 (rectified responses of the filters above, first 96 only)</span><br><span class="line"># conv1 (96, 3, 11, 11) (96,)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view03.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vis_square(filters[:96].reshape(96**3, 11, 11))</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view04.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># the parameters are a list of biases</span><br><span class="line">filters_b = net.params[&apos;conv1&apos;][1].data</span><br><span class="line"># The first layer output, conv1 (rectified responses of the filters above, first 96 only)</span><br><span class="line"># the params in conv1 is (96, 3, 11, 11) (96,)</span><br><span class="line">print filters_b</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view05.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the output after conv1 layer</span><br><span class="line"># conv1 (1, 96, 55, 55)</span><br><span class="line">feat = net.blobs[&apos;conv1&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view06.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the output after pool1 layer</span><br><span class="line"># pool1 (1, 96, 27, 27)</span><br><span class="line">feat = net.blobs[&apos;pool1&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view07.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the output after norm1 layer</span><br><span class="line"># norm1 (1, 96, 27, 27)</span><br><span class="line">feat = net.blobs[&apos;norm1&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view08.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># the parameters are a list of weights in conv2 layer</span><br><span class="line">filters = net.params[&apos;conv2&apos;][0].data</span><br><span class="line">vis_square(filters[:256].reshape(256*48, 5, 5))</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view09.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># the parameters are a list of biases.</span><br><span class="line">filters_b = net.params[&apos;conv2&apos;][1].data</span><br><span class="line"># vis_square(filters.transpose(0, 2, 3, 1))</span><br><span class="line"></span><br><span class="line"># The first layer output, conv1 (rectified responses of the filters above, first 96 only)</span><br><span class="line">print filters_b</span><br><span class="line">conv2   (256, 48, 5, 5) (256,)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view10.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the result after conv2</span><br><span class="line">feat = net.blobs[&apos;conv2&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br><span class="line"># conv2 (1, 256, 27, 27)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view11.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the result after pooling2</span><br><span class="line">feat = net.blobs[&apos;pool2&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br><span class="line"># pool2 (1, 256, 13, 13)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view12.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the result after LRN </span><br><span class="line">feat = net.blobs[&apos;norm2&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br><span class="line"># norm2 (1, 256, 13, 13)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view13.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the result after conv3</span><br><span class="line">feat = net.blobs[&apos;conv3&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br><span class="line"># conv3 (1, 384, 13, 13)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view14.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the result after conv4</span><br><span class="line">feat = net.blobs[&apos;conv4&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br><span class="line"># conv4 (1, 384, 13, 13)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view15.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the result after conv5</span><br><span class="line">feat = net.blobs[&apos;conv5&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br><span class="line"># conv5 (1, 256, 13, 13)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view16.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># show the result after pooling layer 5</span><br><span class="line">feat = net.blobs[&apos;pool5&apos;].data[0]</span><br><span class="line">vis_square(feat)</span><br><span class="line"># pool5 (1, 256, 6, 6)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view18.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># show the result after fc6 layer</span><br><span class="line">feat = net.blobs[&apos;fc6&apos;].data[0]</span><br><span class="line">plt.subplot(2, 1, 1)</span><br><span class="line">plt.plot(feat.flat)</span><br><span class="line">plt.subplot(2, 1, 2)</span><br><span class="line">_ = plt.hist(feat.flat[feat.flat &gt; 0], bins=100)</span><br><span class="line"># fc6   (1, 4096)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view19.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># show the result after fc7</span><br><span class="line">feat = net.blobs[&apos;fc7&apos;].data[0]</span><br><span class="line">plt.subplot(2, 1, 1)</span><br><span class="line">plt.plot(feat.flat)</span><br><span class="line">plt.subplot(2, 1, 2)</span><br><span class="line">_ = plt.hist(feat.flat[feat.flat &gt; 0], bins=100)</span><br><span class="line"># fc7   (1, 4096)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view20.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># show the result after fc8</span><br><span class="line">feat = net.blobs[&apos;fc8&apos;].data[0]</span><br><span class="line">plt.subplot(2, 1, 1)</span><br><span class="line">plt.plot(feat.flat)</span><br><span class="line">plt.subplot(2, 1, 2)</span><br><span class="line">_ = plt.hist(feat.flat[feat.flat &gt; 0], bins=100)</span><br><span class="line"># fc8   (1, 1000)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view21.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># show the result after prob layer</span><br><span class="line">feat = net.blobs[&apos;prob&apos;].data[0]</span><br><span class="line">plt.figure(figsize=(15, 3))</span><br><span class="line">plt.plot(feat.flat)</span><br><span class="line"># prob  (1, 1000)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Cristal-yin/MarkdownPhotos/master/images/caffe04/view22.png" alt></p>
+<h2 id="Loss-和accuracy可视化"><a href="#Loss-和accuracy可视化" class="headerlink" title="Loss 和accuracy可视化"></a>Loss 和accuracy可视化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">import sys,os,caffe</span><br><span class="line">#设置当前目录</span><br><span class="line">caffe_root = &apos;/home/caffe/&apos; </span><br><span class="line">sys.path.insert(0, caffe_root + &apos;python&apos;)</span><br><span class="line">os.chdir(caffe_root)</span><br><span class="line"></span><br><span class="line"># set the solver prototxt</span><br><span class="line">caffe.set_device(0)</span><br><span class="line">caffe.set_mode_gpu()</span><br><span class="line">solver = caffe.SGDSolver(&apos;examples/cifar10/cifar10_quick_solver.prototxt&apos;)</span><br></pre></td></tr></table></figure>
+<p>​    如果不需要绘制曲线，只需要训练出一个caffemodel, 直接调用solver.solve()就可以了。如果要绘制曲线，就需要把迭代过程中的值</p>
+<p>保存下来，因此不能直接调用solver.solve(), 需要迭代。在迭代过程中，每迭代200次测试一次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">niter =4000</span><br><span class="line">test_interval = 200</span><br><span class="line">train_loss = np.zeros(niter)</span><br><span class="line">test_acc = np.zeros(int(np.ceil(niter / test_interval)))</span><br><span class="line"></span><br><span class="line"># the main solver loop</span><br><span class="line">for it in range(niter):</span><br><span class="line">    solver.step(1)  # SGD by Caffe</span><br><span class="line">    </span><br><span class="line">    # store the train loss</span><br><span class="line">    train_loss[it] = solver.net.blobs[&apos;loss&apos;].data</span><br><span class="line">    solver.test_nets[0].forward(start=&apos;conv1&apos;)</span><br><span class="line">    </span><br><span class="line">    if it % test_interval == 0:</span><br><span class="line">        acc=solver.test_nets[0].blobs[&apos;accuracy&apos;].data</span><br><span class="line">        print &apos;Iteration&apos;, it, &apos;testing...&apos;,&apos;accuracy:&apos;,acc</span><br><span class="line">        test_acc[it // test_interval] = acc</span><br></pre></td></tr></table></figure>
+<p>Iteration 0 testing… accuracy: 0.10000000149</p>
+<p>Iteration 200 testing… accuracy: 0.419999986887</p>
+<p>Iteration 400 testing… accuracy: 0.479999989271</p>
+<p>Iteration 600 testing… accuracy: 0.540000021458</p>
+<p>Iteration 800 testing… accuracy: 0.620000004768</p>
+<p>Iteration 1000 testing… accuracy: 0.629999995232</p>
+<p>Iteration 1200 testing… accuracy: 0.649999976158</p>
+<p>Iteration 1400 testing… accuracy: 0.660000026226</p>
+<p>Iteration 1600 testing… accuracy: 0.660000026226</p>
+<p>Iteration 1800 testing… accuracy: 0.670000016689</p>
+<p>Iteration 2000 testing… accuracy: 0.709999978542</p>
+<p>Iteration 2200 testing… accuracy: 0.699999988079</p>
+<p>Iteration 2400 testing… accuracy: 0.75</p>
+<p>Iteration 2600 testing… accuracy: 0.740000009537</p>
+<p>Iteration 2800 testing… accuracy: 0.769999980927</p>
+<p>Iteration 3000 testing… accuracy: 0.75</p>
+<p>Iteration 3200 testing… accuracy: 0.699999988079</p>
+<p>Iteration 3400 testing… accuracy: 0.740000009537</p>
+<p>Iteration 3600 testing… accuracy: 0.72000002861</p>
+<p>Iteration 3800 testing… accuracy: 0.769999980927</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">print test_acc</span><br><span class="line">_, ax1 = plt.subplots()</span><br><span class="line">ax2 = ax1.twinx()</span><br><span class="line">ax1.plot(np.arange(niter), train_loss)</span><br><span class="line">ax2.plot(test_interval * np.arange(len(test_acc)), test_acc, &apos;r&apos;)</span><br><span class="line">ax1.set_xlabel(&apos;iteration&apos;)</span><br><span class="line">ax1.set_ylabel(&apos;train loss&apos;)</span><br><span class="line">ax2.set_ylabel(&apos;test accuracy&apos;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/caffe的solver文件配置/" rel="next" title="caffe的solver文件配置">
+                <i class="fa fa-chevron-left"></i> caffe的solver文件配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/23/L1-二叉树的最大深度/" rel="prev" title="L1-二叉树的最大深度">
+                L1-二叉树的最大深度 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg5Ny8xMzQzMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">TinaCristal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TinaCristal" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="is.yatingsun@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据可视化"><span class="nav-number">1.</span> <span class="nav-text">数据可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型可视化"><span class="nav-number">2.</span> <span class="nav-text">模型可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络权值可视化"><span class="nav-number">3.</span> <span class="nav-text">网络权值可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层的特征可视化"><span class="nav-number">4.</span> <span class="nav-text">层的特征可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loss-和accuracy可视化"><span class="nav-number">5.</span> <span class="nav-text">Loss 和accuracy可视化</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinaCristal</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

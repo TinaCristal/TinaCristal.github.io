@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python 是强类型的动态脚本语言好多人对python到底是强语言类型还是弱语言类型存在误解，其实，是否是强类型语言只需要一句话就可以判别，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python学习笔记 (一）">
+<meta property="og:url" content="http://yoursite.com/2020/01/09/python学习笔记一/index.html">
+<meta property="og:site_name" content="TinaCristal&#39;s Blog">
+<meta property="og:description" content="Python 是强类型的动态脚本语言好多人对python到底是强语言类型还是弱语言类型存在误解，其实，是否是强类型语言只需要一句话就可以判别，">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190506161044545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2R1Z3VzaGFuZ2xpYW5n,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2020-04-23T07:22:33.862Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python学习笔记 (一）">
+<meta name="twitter:description" content="Python 是强类型的动态脚本语言好多人对python到底是强语言类型还是弱语言类型存在误解，其实，是否是强类型语言只需要一句话就可以判别，">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190506161044545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2R1Z3VzaGFuZ2xpYW5n,size_16,color_FFFFFF,t_70">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/09/python学习笔记一/">
+
+
+
+
+
+  <title>python学习笔记 (一） | TinaCristal's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinaCristal's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/09/python学习笔记一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python学习笔记 (一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-09T17:34:00+08:00">
+                2020-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Python-是强类型的动态脚本语言"><a href="#Python-是强类型的动态脚本语言" class="headerlink" title="Python 是强类型的动态脚本语言"></a>Python 是强类型的动态脚本语言</h2><p>好多人对python到底是强语言类型还是弱语言类型存在误解，其实，是否是强类型语言只需要一句话就可以判别，<br><a id="more"></a><br>强类型：不允许不同类型相加。例如：整形+字符串会报类型错误。</p>
+<p>动态：不使用显示数据类型声明，且确定一个变量的类型是在第一次给它赋值的时候。</p>
+<p>脚本语言：一般是解释性语言，运行代码只需要一个解释器，不需要编辑。</p>
+<p>强弱是对类型而言的。<br>强类型，你有一个值之后这个值是什么类型是确定，比如n=’1’，n的类型是确定的（字符串），因此你不能在Python做n=’3’ m=n+1运算。而弱类型就不是这样的，值的类型可以在需要的时候再去确定，比如PHP里面你可以$n=’3’; $m=$n+1，运算的时候’3’就可以当作整型来进行计算。</p>
+<p>弱类型使用会灵活些，但有时候也会因为这种灵活而带来一些歧义，相比而已，强类型就更严谨了。</p>
+<p>理解变量在计算机内存中的表示也非常重要。当我们写：</p>
+<p>a = ‘ABC’<br>时，Python解释器干了两件事情：</p>
+<p>在内存中创建了一个’ABC’的字符串；</p>
+<p>在内存中创建了一个名为a的变量，并把它指向’ABC’。</p>
+<p>也可以把一个变量a赋值给另一个变量b，这个操作实际上是把变量b指向变量a所指向的数据</p>
+<h2 id="python-基本数据类型"><a href="#python-基本数据类型" class="headerlink" title="python 基本数据类型"></a>python 基本数据类型</h2><p>数字 字符串 列表 元组 字典 集合</p>
+<p>数字 布尔型 :True false</p>
+<h2 id="Python的浮点型不区分单精度和双精度"><a href="#Python的浮点型不区分单精度和双精度" class="headerlink" title="Python的浮点型不区分单精度和双精度"></a>Python的浮点型不区分单精度和双精度</h2><p>python的浮点型数据在内存中占24个字节</p>
+<p>Python原生浮点数类型只有一种，叫float，大小为24个字节（我这里Python3.6是这样，别的版本不清楚），本身就是双精度（你打个特别长的小数，最后它会给你截止到15-16位有效数字，这是双精度浮点数的典型特征），不论你是多短的浮点数都是如此</p>
+<p>Python和别的语言不一样，每个变量都是对象，而对象里有各种杂七杂八的属性方法，所以内存占用比其他语言大得多</p>
+<h2 id="python序列"><a href="#python序列" class="headerlink" title="python序列"></a>python序列</h2><p>• 序列是一块用来存放多个值的连续内存空间。常见的序列有列表、元组、字典和集合。</p>
+<p>• 可变与不可变特性</p>
+<p>• 可变：列表、字典和集合</p>
+<p>• 不可变：元组</p>
+<p>• 有序与无序特性</p>
+<p>• 有序：列表、元组和字典</p>
+<p>• 无序：集合</p>
+<p>• 上述序列结构中并不一定要求所有元素都是相同类型的</p>
+<p>• 可以利用集合来完成去重处理</p>
+<p>• 可以利用字典的哈希特性来完成大数据量的查找和统计的速度<br>• 列表推导式的功能要重点贯彻</p>
+<p>如果希望内存占用更小，而有用单精度的需求，建议使用numpy等第三方库，可以提供对变量类型大小的控制。</p>
+<h2 id="数据类型的可变与不可变特性"><a href="#数据类型的可变与不可变特性" class="headerlink" title="数据类型的可变与不可变特性"></a>数据类型的可变与不可变特性</h2><p>不可变数据类型： 当该数据类型的对应变量的值发生了改变，那么它对应的内存地址也会发生改变，对于这种<br>数据类型，就称不可变数据类型。</p>
+<p>• 可变数据类型 ：当该数据类型的对应变量的值发生了改变，那么它对应的内存地址不发生改变，对于这种数<br>据类型，就称可变数据类型。</p>
+<p>• 不可变数据类型： 值相等内存空间地址同</p>
+<p>• 数字<br>• 字符串<br>• 元组</p>
+<p>• 可变数据类型 值相等内存空间地址不同</p>
+<p>• 列表<br>• 字典<br>• 集合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">x=[123,12]</span><br><span class="line">y=[123,12]</span><br><span class="line">print(id(x))</span><br><span class="line">print(id(y))</span><br></pre></td></tr></table></figure></p>
+<p>值相等地址空间不同</p>
+<h3 id="python循环"><a href="#python循环" class="headerlink" title="python循环"></a>python循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">money=int(input(&quot;输入&quot;))</span><br><span class="line">coins=(25,10,5,1)</span><br><span class="line">counts=[]</span><br><span class="line">for coin in coins:</span><br><span class="line">    counts.append(money//coin)</span><br><span class="line">    money%=coin</span><br><span class="line">for i in range(len(counts)):</span><br><span class="line">    print(&quot;找零&#123;0&#125;美分硬币&#123;1&#125;个&quot;.format(coins[i],counts[i]))</span><br></pre></td></tr></table></figure>
+<h2 id="python格式化输出"><a href="#python格式化输出" class="headerlink" title="python格式化输出"></a>python格式化输出</h2><p><a href="https://www.cnblogs.com/lovejh/p/9201219.html" target="_blank" rel="noopener">https://www.cnblogs.com/lovejh/p/9201219.html</a><br> 相对基本格式化输出采用‘%’的方法，format()功能更强大，该函数把字符串当成一个模板，通过传入的参数进行格式化，并且使用大括号‘{}’作为特殊字符代替‘%’</p>
+<p>使用方法由两种：b.format(a)和format(a,b)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 &gt;&gt;&gt; print(&apos;&#123;&#125; &#123;&#125;&apos;.format(&apos;hello&apos;,&apos;world&apos;))  # 不带字段</span><br><span class="line">2 hello world</span><br></pre></td></tr></table></figure></p>
+<h2 id="python格式化字符"><a href="#python格式化字符" class="headerlink" title="python格式化字符"></a>python格式化字符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">格式 描述</span><br><span class="line">%% 百分号标记 #就是输出一个%</span><br><span class="line">%c 字符及其ASCII码</span><br><span class="line">%s 字符串</span><br><span class="line">%d 有符号整数(十进制)</span><br><span class="line">%u 无符号整数(十进制)</span><br><span class="line">%o 无符号整数(八进制)</span><br><span class="line">%x 无符号整数(十六进制)</span><br><span class="line">%X 无符号整数(十六进制大写字符)</span><br><span class="line">%e 浮点数字(科学计数法)</span><br><span class="line">%E 浮点数字(科学计数法，用E代替e)</span><br><span class="line">%f 浮点数字(用小数点符号)</span><br><span class="line">%g 浮点数字(根据值的大小采用%e或%f)</span><br><span class="line">%G 浮点数字(类似于%g)</span><br><span class="line">%p 指针(用十六进制打印值的内存地址)</span><br><span class="line">%n 存储输出字符的数量放进参数列表的下一个变量中</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">%格式化符也可用于字典，可用%(name)引用字典中的元素进行格式化输出。</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">负号指时数字应该是左对齐的，“0”告诉Python用前导0填充数字，正号指时数字总是显示它的正负(+，-)符号，即使数字是正数也不例外。</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">可指定最小的字段宽度，如：&quot;%5d&quot; % 2。也可用句点符指定附加的精度，如：&quot;%.3d&quot; % 3。</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line"># 例：数字格式化</span><br><span class="line">nYear = 2018</span><br><span class="line">nMonth = 8</span><br><span class="line">nDay = 18</span><br><span class="line"># 格式化日期 %02d数字转成两位整型缺位填0</span><br><span class="line">print &apos;%04d-%02d-%02d&apos;%(nYear,nMonth,nDay)</span><br><span class="line">&gt;&gt; 2018-08-18 # 输出结果</span><br><span class="line"></span><br><span class="line">fValue = 8.123</span><br><span class="line">print &apos;%06.2f&apos;%fValue # 保留宽度为6的2位小数浮点型</span><br><span class="line">&gt;&gt; 008.12 # 输出</span><br><span class="line"></span><br><span class="line">print &apos;%d&apos;%10 # 输出十进制</span><br><span class="line">&gt;&gt; 10</span><br><span class="line">print &apos;%o&apos;%10 # 输出八进制</span><br><span class="line">&gt;&gt; 12</span><br><span class="line">print &apos;%02x&apos;%10 # 输出两位十六进制，字母小写空缺补零</span><br><span class="line">&gt;&gt; 0a</span><br><span class="line">print &apos;%04X&apos;%10 # 输出四位十六进制，字母大写空缺补零</span><br><span class="line">&gt;&gt; 000A</span><br><span class="line">print &apos;%.2e&apos;%1.2888 # 以科学计数法输出浮点型保留2位小数</span><br><span class="line">&gt;&gt; 1.29e+00</span><br><span class="line"></span><br><span class="line"> 格式化操作符辅助指令</span><br><span class="line">符号 作用</span><br><span class="line">* 定义宽度或者小数点精度</span><br><span class="line">- 用做左对齐</span><br><span class="line">+ 在正数前面显示加号( + )</span><br><span class="line">&lt;sp&gt; 在正数前面显示空格</span><br><span class="line"># 在八进制数前面显示零(&apos;0&apos;),在十六进制前面显示&apos;0x&apos;或者&apos;0X&apos;(取决于</span><br><span class="line">          用的是&apos;x&apos;还是&apos;X&apos;)</span><br><span class="line">0 显示的数字前面填充‘0’而不是默认的空格</span><br><span class="line">% &apos;%%&apos;输出一个单一的&apos;%&apos;</span><br><span class="line">(var) 映射变量(字典参数)</span><br><span class="line">m.n m 是显示的最小总宽度,n 是小数点后的位数(如果可用的话)</span><br><span class="line"> ``` </span><br><span class="line">小数点前面的数字表示最小宽度</span><br><span class="line"></span><br><span class="line">数字位数大于它时，按实际位数输出，小数点前空缺也是</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">小数点后面的数字表示输出的小数点位数，如果位数不足就会四舍五入，如果位数不够显示就会在后面补0.</span><br><span class="line"></span><br><span class="line">比如x=12.31913</span><br><span class="line">则printf(&quot;%5.3f&quot;,x)就是“12.319”，注意小数点也算一位数长！</span><br><span class="line"></span><br><span class="line">又如x=2.31913</span><br><span class="line">则printf(&quot;%6.3f&quot;,x)就是“ 2.319”，注意小数点也算一位数长，2前面还有一个空格！</span><br><span class="line"></span><br><span class="line">5.3是指结果总长是最小宽度为五位数（注意小数点也算一位数长），就是小数点前两个数字，不足就用空格表示，小数点后保留两位，不足四舍五入！</span><br><span class="line"></span><br><span class="line">关于format方法</span><br><span class="line">![](http://ww1.sinaimg.cn/large/006LSO4Ggy1gdz6p90a10j30me0bot9y.jpg)</span><br></pre></td></tr></table></figure>
+<p>print(“float占8位留2位小数：{:8.2f}——默认右对齐”.format(1192.68123))<br>print(“float占18位留2位小数：{:18.2f}——默认右对齐”.format(1192.68123))<br>print(“float占18位留2位小数：{:&gt;18.2f}——右对齐”.format(1192.68123))<br>print(“float占18位留2位小数：{:&lt;18.2f}——左对齐”.format(1192.68123))<br>print(“float占18位留2位小数：{:^18.2f}——居中对齐”.format(1192.68123))<br>print(“float留2位小数：{:.2f}——默认右对齐”.format(1192.68123))<br>print(“float留2位小数：{:&gt;.2f}——右对齐”.format(1192.68123))<br>print(“float留2位小数：{:&lt;.2f}——左对齐”.format(1192.68123))<br>print(“float留2位小数：{:&lt;+.2f}——左对齐带符号”.format(1192.68123))<br>print(“float留2位小数：{:&lt;.2%}——左对齐百分比形式”.format(0.6812345))<br>print(“int占8位：{:&lt;8d}——左对齐”.format(1192))<br>print(“int占8位：{:0&lt;8d}——左对齐补0”.format(1192))<br>print(“int占8位：{:x&lt;8d}——左对齐补x”.format(1192))<br>print(“int占8位：{:中&lt;8d}——左对齐补中”.format(1192))<br>print(“int占8位：{:8d}——默认右对齐”.format(1192))<br>print(“int占8位：{:8d}——默认右对齐”.format(1192))<br>print(“int占22位：{:22e}——默认右对齐科学计数法”.format(1230000))</p>
+<p><code>`</code><br><img src="https://img-blog.csdnimg.cn/20190506161044545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2R1Z3VzaGFuZ2xpYW5n,size_16,color_FFFFFF,t_70" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/03/总结-28-1/" rel="next" title="周总结（30）">
+                <i class="fa fa-chevron-left"></i> 周总结（30）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/16/python学习笔记-三/" rel="prev" title="python学习笔记(三)">
+                python学习笔记(三) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg5Ny8xMzQzMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">TinaCristal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TinaCristal" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="is.yatingsun@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-是强类型的动态脚本语言"><span class="nav-number">1.</span> <span class="nav-text">Python 是强类型的动态脚本语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-基本数据类型"><span class="nav-number">2.</span> <span class="nav-text">python 基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python的浮点型不区分单精度和双精度"><span class="nav-number">3.</span> <span class="nav-text">Python的浮点型不区分单精度和双精度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python序列"><span class="nav-number">4.</span> <span class="nav-text">python序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型的可变与不可变特性"><span class="nav-number">5.</span> <span class="nav-text">数据类型的可变与不可变特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python循环"><span class="nav-number">5.1.</span> <span class="nav-text">python循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python格式化输出"><span class="nav-number">6.</span> <span class="nav-text">python格式化输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python格式化字符"><span class="nav-number">7.</span> <span class="nav-text">python格式化字符</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinaCristal</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

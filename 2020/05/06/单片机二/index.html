@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一章 单片机原理及应用 CPU地址的宽度决定了它可以访问的空间。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单片机二">
+<meta property="og:url" content="http://yoursite.com/2020/05/06/单片机二/index.html">
+<meta property="og:site_name" content="TinaCristal&#39;s Blog">
+<meta property="og:description" content="第一章 单片机原理及应用 CPU地址的宽度决定了它可以访问的空间。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-05-08T08:47:48.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单片机二">
+<meta name="twitter:description" content="第一章 单片机原理及应用 CPU地址的宽度决定了它可以访问的空间。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/05/06/单片机二/">
+
+
+
+
+
+  <title>单片机二 | TinaCristal's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinaCristal's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/06/单片机二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">单片机二</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-06T21:23:00+08:00">
+                2020-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/单片机/" itemprop="url" rel="index">
+                    <span itemprop="name">单片机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第一章-单片机原理及应用"><a href="#第一章-单片机原理及应用" class="headerlink" title="第一章 单片机原理及应用"></a>第一章 单片机原理及应用</h1><ul>
+<li>CPU地址的宽度决定了它可以访问的空间。 <a id="more"></a>
+<h2 id="原码-反码-补码的关系"><a href="#原码-反码-补码的关系" class="headerlink" title="原码 反码 补码的关系"></a>原码 反码 补码的关系</h2>正数的补码表示与原码相同;负数的补码表示等于它的反码末位加1。<h2 id="计算机组成"><a href="#计算机组成" class="headerlink" title="计算机组成"></a>计算机组成</h2>计算机由控制器,运算器,存储器,输入设备和输出设备五大部分组成<h2 id="微型计算机系统的三个层次"><a href="#微型计算机系统的三个层次" class="headerlink" title="微型计算机系统的三个层次"></a>微型计算机系统的三个层次</h2>微处理器,微型计算机,微型计算机系统是从局部到全局构成微型计算机系统的三个层次。 微型计算机系统由硬件系统和软件系统组成。</li>
+</ul>
+<p>微处理器中主要包含控制部件,算术逻辑部件和寄存器组成三个部分,是构成微型计算机的核心部件。 </p>
+<h2 id="单片机定义"><a href="#单片机定义" class="headerlink" title="单片机定义"></a>单片机定义</h2><p>把中央处理器、时钟电路、半导体存储器、 I/O接口、定时器/计数器及中断系统集成在一块硅片上的具有完整功能的单片微型计算机（Single-Chip Microcomputer），简称单片机。</p>
+<h2 id="单片机组成"><a href="#单片机组成" class="headerlink" title="单片机组成"></a>单片机组成</h2><p>单片微型计算机通常由单块集成电路芯片构成,每部包含有中央处理单元CPU,存储器,定时器/计数器和I/O接口电路等主要计算机部件。 </p>
+<p>中央处理器CPU:功能产生控制信号,包括运算器和控制器,并包含一个布尔处理器,处理一位二进制即位操作。 </p>
+<p>控制器:包括计数器PC,指令寄存器IR,指令译码器ID,数据指针DPTR,堆栈指针SP,定时控制,条件转移。 </p>
+<h2 id="三总线结构"><a href="#三总线结构" class="headerlink" title="三总线结构"></a>三总线结构</h2><p>地址总线AB用来传送MPU发出的地址码,是单向总线;数据总线DB用来传送数据,、和指令码,是双向总线;控制总线CB用来传送MPU发出的控制信号,存储器或外设的状态信号和时序信号等。每根控制总线的信息传送方向是固定的,单向的,而控制总线作为整体则为双向的。 </p>
+<h2 id="锁存器和缓冲器区别"><a href="#锁存器和缓冲器区别" class="headerlink" title="锁存器和缓冲器区别"></a>锁存器和缓冲器区别</h2><h2 id="存储器的结构和工作原理"><a href="#存储器的结构和工作原理" class="headerlink" title="存储器的结构和工作原理"></a>存储器的结构和工作原理</h2><h2 id="数据存储器与程序存储器区别"><a href="#数据存储器与程序存储器区别" class="headerlink" title="数据存储器与程序存储器区别"></a>数据存储器与程序存储器区别</h2><p>8051的存储器在物理结构上分程序存储器ROM和数据存储器RAM,有四个物理上相互独立的存储空间,即片内ROM 和片外ROM,片内RAM和片外RAM。从用户使用的角度看,8051存储空间范围三类:片内片外统一编址的0000H-FFFFH的64KB 的程序存储器地址空间;256字节数据存储器地址空间,地址从00H-FFH;64KB片外数据存储空间或I/O口地址空间,地址从0000H-FFFFH。上述单个空间地址是重叠的,即程序存储器中片内外低4KB地址重叠;数据存储器与程序存储器64KB地址全部重叠; </p>
+<p>数据存储器只能够片内外256字节地址重叠。虽然地址重叠,但由于采用了不同的操作指令及控制信号#EA,,#PSEN 的选择,因此不会发生混乱。 </p>
+<p>程序存储器用来存放程序代码和常数,分成片内,片外两大部分,即片内ROM和片外ROM。其中,8051内部有4KB的ROM,地址范围为0000H-0FFFH,片外用16位地址线扩充64KB的ROM,两者统一编址。数据存储器用来存放运算的中间结果,标志位,以及数据的暂存和缓冲等。它也分为片内和片外两大部分,即片内RAM和片外RAM。8051片内数据存储器最大可寻址256个单元,通常把这256个单元按功能划分为低128单元(单元地址00H-7FH)和高128单元(单元地址80H-FFH),敌128单元共分为工作寄存器,位寻址区和数据缓冲三个区域。片外RAM地址范围0000H-FFFF,其中在0000H-00FFH区间与片内数据存储器空间是重叠的。CPU使用MOV指令和MOVX指令加以区分。 </p>
+<h2 id="单片机存储系统"><a href="#单片机存储系统" class="headerlink" title="单片机存储系统"></a>单片机存储系统</h2><p>存储器结构:在物理结构上分为程序存储器 (ROM)和数据存储器(RAM)。程序存储器用来存放程序代码和常数,分成片内ROM和片外ROM。片内数据存储器用来存放运算的中间结果,标志位以及数据的暂存和缓冲等,分为片内RAM和片外RAM。片外数据存储器一般由静态RAM芯片组成。 </p>
+<p>3MCS-51的时序定时单位从小到大依次为节拍,状态,机器周期和指令周期。节拍:振荡脉冲的周期;每两个节拍定义为一个状态; </p>
+<p>机器周期:MCS-51采用定时控制方式,有固定机器周期,规定一个机器周期的宽度为6个状态,并依次表示为S1~S6;指令周期是最大的时序定时单位,执行一条指令所需的时间称为指令周期。 </p>
+<h2 id="ROM和RAM的主要区别"><a href="#ROM和RAM的主要区别" class="headerlink" title="ROM和RAM的主要区别"></a>ROM和RAM的主要区别</h2><p>一是断电后的ROM内的信息不丢失;而RAM中的信息立即消失;二是读/写方式不同,ROM采用特殊方式写入信息，正常工作是只读方式,而RAM正常工作方式是既能读又能写。 </p>
+<h2 id="运算器的组成"><a href="#运算器的组成" class="headerlink" title="运算器的组成"></a>运算器的组成</h2><p>运算器由算术逻辑单元ALU,累加器A,通用寄存器PS.暂存器TMP和状态寄存器PSW等五部分组成</p>
+<p>运算器:以算术逻辑单元ALU为核心,加上累加器ACC,寄存器B,暂存器TMP1和TMP2,程序状态字PSW,位操作的布尔处理器,十进制调整电路。 </p>
+<h2 id="单片机的应用"><a href="#单片机的应用" class="headerlink" title="单片机的应用"></a>单片机的应用</h2><p>单片机的应用:(1)单片机特别适用于机,电,仪一体的智能产品。(2)单片机在工业控制中的应用。(3)单片机在通信方面的应用。 </p>
+<h1 id="第二章-MCS-51单片机的结构和工作原理"><a href="#第二章-MCS-51单片机的结构和工作原理" class="headerlink" title="第二章 MCS-51单片机的结构和工作原理"></a>第二章 MCS-51单片机的结构和工作原理</h1><ul>
+<li>MCS-51是Intel公司生产的8位高档的单片机系列。 </li>
+<li>时钟电路:外接石英晶体和微调电路,系统最高晶振频率为12MHZ </li>
+<li>累加器ACC为8位寄存器,是CPU中使用最频繁的寄存器。 </li>
+<li><p>并行I/O口:有四个8位并行接口,P0-P3,都具有双向I/O功能,均可以作为输入输出使用。P3口还具有第二功能(RxD,TxD,#INT0,#INT1,T0,T1,#WR,#RD)。 </p>
+</li>
+<li><p>串行口:既可作为双工异步收发器也能作为同步移位器。 </p>
+<h2 id="MCS-51由8个部件组成"><a href="#MCS-51由8个部件组成" class="headerlink" title="MCS-51由8个部件组成"></a>MCS-51由8个部件组成</h2><p>MCS-51由8个部件组成:中央处理器CPU,时钟电路,程序存储器(ROM\EPROM),数据存储器(RAM),并行I/O口(P0-P3口),串行口,定时器/计数器及中断系统。 </p>
+<h2 id="单片机的并行端口"><a href="#单片机的并行端口" class="headerlink" title="单片机的并行端口"></a>单片机的并行端口</h2><p>单片机的并口(I/O)端口:P0,P1,P2,P3。P3还用具有第二功能:输入/输出 </p>
+</li>
+</ul>
+<p>5MCS-51是Intel公司生产的8位高档单片机系列,基本组成:中央处理器,时钟电路,程序存储器,数据存储器,并行I/O口,串行口,定时器/计数器及中断系统。MCS-51系列单片机芯片均为40个引脚,其中ALE引脚功能是地址锁存控制信号。当单片机正常工作时,ALE就以时钟振荡频率的六分之一的固定频率,周期的向外输出正脉冲信号,故它也看作为外部时钟或外部定时脉冲源使用。PSEN/此引脚是单片机外程序存储器选通信号,低电平有效。</p>
+<h2 id="8051的中断源"><a href="#8051的中断源" class="headerlink" title="8051的中断源"></a>8051的中断源</h2><p>8051共有5个中断源:外中断2个,定时器/计数器2个,串行中断1个。全部中断分为高级和低级两个优先级别。 </p>
+<h2 id="程序状态字PSW组成"><a href="#程序状态字PSW组成" class="headerlink" title="程序状态字PSW组成"></a>程序状态字PSW组成</h2><p>程序状态字PSW:Cy进位标志,PSW中最常用的标志位;AC 辅助进位标志(第四位向高四位);RS1和RS0工作寄存器组选择位;OV一处标志位;P奇偶标志位(奇数个1则P=1,偶数个1则P=0)。F0用户标志位 </p>
+<h2 id="程序计数器PC"><a href="#程序计数器PC" class="headerlink" title="程序计数器PC"></a>程序计数器PC</h2><p>程序计数器PC :是一个16位计数器,其内容是将要执行的下一条指令的地址,寻址范围64KB;数据指针DPTR既可为16为寄存器使用,也可以按两个8位寄存器分开使用,即DPH为DPTR 的高8位,DPL为DPTR的低8位。 </p>
+<h2 id="中断源的中断地址区"><a href="#中断源的中断地址区" class="headerlink" title="中断源的中断地址区"></a>中断源的中断地址区</h2><p>中断源的中断地址区:00003H-000AH #INT0中断地址区 </p>
+<p>000BH-0012H T/C0中断地址区0013H-001AH #INT1中断地址区0023H-002AH 串行口中断地址区 </p>
+<h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><p>堆栈是一种数据结构,所谓堆栈就是只允许在其一端进行数据插入和数据删除操作的线性表。数据写入堆栈称为插入运算(PUSH),也叫入栈。数据从堆栈中读出称为删除操作(POP),也叫出栈。堆栈最大的特点是“后进先出”。<strong>堆栈是为程序调用和终端操作而设立的,具体功能是保护断点和保护现场。 </strong></p>
+<p>堆栈有栈顶和栈底之分。出栈和入栈都是对栈顶单元进行的。SP 的内容就是堆栈栈顶的存储单元地址。堆栈中空无数据时,栈顶地址和栈底地址重合。 </p>
+<p>MCS-51属于向上生长型堆栈,操作规则如下:1.进栈操作时,SP 先加1,后写入数据;出栈操作时,先读出数据,SP减1。堆栈使用方式:堆栈使用有两种方式,一种是自动式,即在调用子程序或断点时,断点地址自动进栈。程序返回时,断点地址再自动弹回PC。 </p>
+<p>这种操作无需用户干预。另一种是指令方式,即使用专用的堆栈操作指令,执行进出栈操作,其进栈指令为PUSH ,出栈指令为POP。 </p>
+<h3 id="堆栈的操作原则"><a href="#堆栈的操作原则" class="headerlink" title="堆栈的操作原则"></a>堆栈的操作原则</h3><p>进栈操作时,先SP加1,后写入数据。出栈操作时先读出数据,SP再减1。进栈指令PUSH,出栈指令POP。 </p>
+<h2 id="MCS-51系列单片机芯片的引脚"><a href="#MCS-51系列单片机芯片的引脚" class="headerlink" title="MCS-51系列单片机芯片的引脚"></a>MCS-51系列单片机芯片的引脚</h2><p>MCS-51系列单片机芯片均为40个引脚。控制信号引脚ALE </p>
+<p>#PSEN #EA和RST:在访问外部存储器时,ALE用于锁存出现在P0口的低8位地址,以实现低地址和数据的隔离。当单片机上点正常工作后,ALE就以时钟振荡频率的六分之一的固定频率周期性地外输出正脉冲信号,故它也可作为外部时钟和外部定时脉冲源使用。#PSEN引脚是片外程序存储器选通信号,低电平有效。再从片外ROM读取指令或常数时,每个机器周期#PSEN两次有效,以实现对片外ROM单元的读操作。当访问片外RAM时,#PSEN信号将不出现。 </p>
+<h2 id="MCS-51单片机的工作方式"><a href="#MCS-51单片机的工作方式" class="headerlink" title="MCS-51单片机的工作方式"></a>MCS-51单片机的工作方式</h2><p>MCS-51单片机的工作方式有复位方式,单步执行方式,程序执行方式,掉电和低功耗方式以及EPROM编程校验与加密方式等。 </p>
+<p>复位或,PC初始化为0000H,使单片机从0000H单元开始执行程序。 </p>
+<h2 id="MCS-51的时序定时单位"><a href="#MCS-51的时序定时单位" class="headerlink" title="MCS-51的时序定时单位"></a>MCS-51的时序定时单位</h2><p>CUP时序:MCS-51的时序定时单位从小到大依次是节拍,状态,机器周期,指令周期。 </p>
+<p>节拍:振荡脉冲的周期;</p>
+<p>每两个节拍定义为一个状态;</p>
+<p>12个振荡周期组成一个机器周期;</p>
+<p>指令周期是最大的时序定时单位,执行一条指令所需的时间称为指令周期。</p>
+<p>根据指令的不同MCS-51的指令周期可分别包含有一,二,四个机器周期。 </p>
+<p>按长度可将MCS-51单片机的指令分为单字节指令,双字节指令和三字节指令;</p>
+<p>单字节指令中,只有乘法指令和除法指令时四个机器周期,其余均为单机器周期或双机器周期;</p>
+<p>双字节指令为单机器周期或双机器周期;三字节指令都是双机器周期。 </p>
+<h1 id="第三章MCS-51的指令系统"><a href="#第三章MCS-51的指令系统" class="headerlink" title="第三章MCS-51的指令系统"></a>第三章MCS-51的指令系统</h1><h2 id="指令系统定义"><a href="#指令系统定义" class="headerlink" title="指令系统定义"></a>指令系统定义</h2><p>一台计算机所有指令的集合称为该计算机的指令系统。它是表征计算机性能的重要标志</p>
+<h2 id="指令系统分类"><a href="#指令系统分类" class="headerlink" title="指令系统分类"></a>指令系统分类</h2><p>指令系统分类:</p>
+<p>①按指令功能分类:数据传送指令,算术运算指令,逻辑运算指令,位操作指令,控制转移指令。<br>（<br>①数据传送指令(29):是指令系统中使用最频繁的指令,主要能由于数据的保存及交换等场合,按数据方式分数据传送,数据交换和堆栈操作。 </p>
+<p>②算术运算指令(24):可以完成加减乘除四则运算以及增量,减量,二、十进制调整操作,直接支持8位无符号数操作。</p>
+<p>③逻辑运算指令(24):包括与、或、异或、清除、求反、左右移位等逻辑操作。</p>
+<p>④位操作指令(17):位传送指令、位变量修改指令、位逻 辑运算指令。</p>
+<p>⑤控制转移指令(17):程序转移指令、子程序调用和返回指令。）</p>
+<p>②按指令字长分类:单字节指令,双字节指令,三字节指令。</p>
+<p>③按指令执行时间分类:单机器周期指令,双机器周期指令,四机器周期指令。</p>
+<h2 id="指令功能分类"><a href="#指令功能分类" class="headerlink" title="指令功能分类"></a>指令功能分类</h2><p>指令功能分类:数据传送指令,算术运算指令,逻辑运算指令,位操作指令,控制转移指令 </p>
+<h2 id="指令部件的组成"><a href="#指令部件的组成" class="headerlink" title="指令部件的组成"></a>指令部件的组成</h2><p>由程序计数器PC,指令寄存器IR,和指令译码器ID等三部分组成。 </p>
+<h2 id="指令寻址方式"><a href="#指令寻址方式" class="headerlink" title="指令寻址方式"></a>指令寻址方式</h2><p>寻址方式:直接寻址,立即寻址,寄存器寻址,寄存器间接寻址,基址加变址寄存器间接寻址,相对寻址,位寻址。 </p>
+<p>寻址方式:<br>1.直接寻址MOV A,30H </p>
+<p>2.立即寻址MOV A,#30H </p>
+<p>3.寄存器寻址MOV A,R0 </p>
+<p>4.寄存器间接寻址MOV A,@R0 </p>
+<p>5.基址加变址寄存器间接寻址MOV A,@A+PC MOVC A,@A+DPTR (查表指令)JMP @A+DPTR </p>
+<p>6.相对寻址(只出现在转移指令中)JC REL </p>
+<p>7.位寻址①直接使用地址②位名称表示法③单元地址加位的表示方法④专用寄存器符号加位的表示方法 MOVC C,7AH </p>
+<h2 id="控制转移指令"><a href="#控制转移指令" class="headerlink" title="控制转移指令"></a>控制转移指令</h2><p>控制转移指令:㈠无条件转移①长转移LJMP addr16 ②绝对转移指令AJMP addr11③短转移SJMP rel ④间接转移JMP @A+DPTR ㈡条件转移①累加器判零转移JZ rel JNZ rel②比较转移指令CJNE &lt;目的字节&gt; ,&lt;源字节&gt;,rel ③循环转移指令DJNZ Rn,rel DJNZ direct, rel </p>
+<h2 id="查表指令"><a href="#查表指令" class="headerlink" title="查表指令"></a>查表指令</h2><p>查表指令:MOVC A,@A+DPTR采用DPTR存放数据表格的地址,然后把所要查得数在表中相对表头地址的偏移量送入累加器,最后使用“MOVC A,@A+DPTR”完成查表。MOVC A,@A+DPTR 用传送指令把所查数据的项数送入累加器A;使用“ADD A, #data ”指令对累加器A进行修正,data值由PC当前值+data=数据表头地址。实际上data值等于查表指令和数据表格之间的字节数;用MOVC A,@A+PC完成。 </p>
+<h1 id="第四章汇编语言程序设计"><a href="#第四章汇编语言程序设计" class="headerlink" title="第四章汇编语言程序设计"></a>第四章汇编语言程序设计</h1><h2 id="机器语言，汇编语言关系"><a href="#机器语言，汇编语言关系" class="headerlink" title="机器语言，汇编语言关系"></a>机器语言，汇编语言关系</h2><p>第一代为机器语言第二代为汇编语言第三代为高级语言第四代为面向对象的语言。机器语言和汇编语言都是面向机器的语言,高级语言是面向过程和问题的语言, </p>
+<h2 id="伪指令"><a href="#伪指令" class="headerlink" title="伪指令"></a>伪指令</h2><p>伪指令:①ORG 16位的地址或标号②END 伪指令③EQU 伪指令字符名EQU 数据或汇编符(字符名必须先赋值后使用,通常放在源程序开头)④DATA 伪指令字符名DA TA 表达式(只允许定义8位的数据地址,16位的数据或地址用XDA TA). </p>
+<p>伪指令:ORG,END,EQU,DATA,BIT,DB,DW,DS </p>
+<h2 id="机器指令"><a href="#机器指令" class="headerlink" title="机器指令"></a>机器指令</h2><p>汇编语言用助记符来表示机器指令,一般由操作码和操作数两部分组成,操作码表示指令的功能,操作数表示指令的对象。 </p>
+<h2 id="汇编语言中每条语句的格式"><a href="#汇编语言中每条语句的格式" class="headerlink" title="汇编语言中每条语句的格式"></a>汇编语言中每条语句的格式</h2><p>汇编语言中每条语句的格式:标号段,操作码段(必不可少), </p>
+<p>操作数段,注释段。 </p>
+<p>汇编语言语句分为指令性语句和指示性语句两类,指示性语句 </p>
+<p>简称伪指令。 </p>
+<h2 id="信息传送方式"><a href="#信息传送方式" class="headerlink" title="信息传送方式"></a>信息传送方式</h2><p>条件传送,查询传送方式,中断传送方式和 </p>
+<p>DMA传送方式。 </p>
+<h2 id="输入-输出的传送信息"><a href="#输入-输出的传送信息" class="headerlink" title="输入/输出的传送信息"></a>输入/输出的传送信息</h2><p>输入/输出的传送信息:数据信息(数字量,模拟量,开关量), 状态信息,控制信息。 </p>
+<h1 id="第五章输入-输出和中断"><a href="#第五章输入-输出和中断" class="headerlink" title="第五章输入/输出和中断"></a>第五章输入/输出和中断</h1><p>1.外设可分为三类:输入设备,输出设备,外存储器。 </p>
+<p>2.信息传送方式:无条件传送,查询传送(条件传送或异步传送),中断传送和DMA传送。 </p>
+<p>3.CPU之间传送的信息通常有三类:数据信息,状态信息,控制信息。 </p>
+<p>4.I/O端口的编址方式:I/O端口单独编址;I/O端口和存储器统一编址。 </p>
+<h2 id="中断源"><a href="#中断源" class="headerlink" title="中断源"></a>中断源</h2><p>中断源是指引起中断的设备或部件或者发出中断请求的来源。 </p>
+<h2 id="中断源分类"><a href="#中断源分类" class="headerlink" title="中断源分类"></a>中断源分类</h2><p><strong>8051:5个中断源(外中断2个,定时器/计数器2个,串行口中断1个),全部中断都分为高级和低级.</strong></p>
+<p>中断源的分类:外部设备中断源,控制对象中断源,故障中断源,定时脉冲中断源,人为设置中断源。  </p>
+<h2 id="中断含义"><a href="#中断含义" class="headerlink" title="中断含义"></a>中断含义</h2><p>中断是指中央处理器CPU正在处理某件事的时候,外部发生了某一事件,请求CPU迅速处理,CPU暂时中断当前工作,转入处理发生的事件,处理完后,再回到原来被中断的地方继续处理原来的工作,这样的过程称为中断。 </p>
+<h2 id="中断分类"><a href="#中断分类" class="headerlink" title="中断分类"></a>中断分类</h2><p>中断的分类:可屏蔽中断，非可屏蔽中断，软件中断 </p>
+<h2 id="中断处理过程"><a href="#中断处理过程" class="headerlink" title="中断处理过程"></a>中断处理过程</h2><p>中断处理过程:中断请求,中断响应,中断处理,中断返回，中断处理的三个阶段：中断响应,中断处理,中断返回 </p>
+<h2 id="中断响应条件"><a href="#中断响应条件" class="headerlink" title="中断响应条件"></a>中断响应条件</h2><p>CPU处于开中断状态CPU执行完当前指令</p>
+<h2 id="中断系统"><a href="#中断系统" class="headerlink" title="中断系统"></a>中断系统</h2><p>(1)与中断系统有关的特殊功能寄存器:中断源寄存器(TCON,SCON),中断允许控制寄存器IE和中断优先级控制寄存器 IP。 </p>
+<p>(2)8031单片机有5个中断源:2个从#INT0,#INT1上输入的外 </p>
+<p>部中断源0和外部中断源1,2个片内定时/计数器溢出中断源,1个片内串行口发送或接收中断源 </p>
+<p>中断标志:TF 定时/计数器溢出中断请求标志位IE 外部中断请求标志IT 外部中断触发标志位。 </p>
+<p>中断允许控制:EA 中断允许总控制位ES 串行口中断允许控制位ET 定时/计数器溢出中断允许控制位EX 外部中断允许控制位。 </p>
+<p>中断优先级的控制:PS 串行口优先级控制位PT定时/计数器优先级控制位PX外部中断优先级控制。 </p>
+<p>中断入口(优先级由高到低)①#INT0 0003H ②定时/计数器T/C0 000BH ③#INT1 0013H④定时/计数器T/C1 001BH ⑤串行口中断0023H </p>
+<p>(3)#INT1为低电平触发的中断系统初始程序 </p>
+<p>①采用位操作指令 </p>
+<p>SETB EA;CPU开中断 </p>
+<p>SETB EX1;开#INT1中断 </p>
+<p>SETB PX1;令#INT1为高优先级 </p>
+<p>CLR IT1;:令#INT1为电平触发 </p>
+<p>②采用字节操作指令 </p>
+<p>MOV IE,#84H;开#INT1中断 </p>
+<p>ORL IP,#04H;令#INT1为高级别中断 </p>
+<p>ANL TCON,#0FBH;令#INT1为电平触发 </p>
+<h2 id="无条件传送方式优缺点"><a href="#无条件传送方式优缺点" class="headerlink" title="无条件传送方式优缺点"></a>无条件传送方式优缺点</h2><p>无条件传送方式:优点是不查询外设的状态,在输入/输出时,用相应I/O指令,使得程序简单,节省硬件和软件;缺点是必须已知确切确信外设已经准备好的情况下才能使用,否则会出错。常用的两种情况:外设工作速度非常快和外设工作速度非常慢。例如MOVX A,@DPTR </p>
+<h2 id="定时器-计数器"><a href="#定时器-计数器" class="headerlink" title="定时器/计数器"></a>定时器/计数器</h2><p>8051单片机内有两个16位的定时器/计数器,,每个定时器/计数器都由2个8位寄存器组成,都能设置成计数方式和定时方式。 </p>
+<h3 id="计数和定时功能"><a href="#计数和定时功能" class="headerlink" title="计数和定时功能"></a>计数和定时功能</h3><p>定时器/计数器:计数功能:对外部脉冲计数,技术脉冲的频率最高是震荡脉冲频率的1/24。定时功能:对内部脉冲计数,计数脉冲为振荡频率的1/12。</p>
+<h3 id="四种工作方式"><a href="#四种工作方式" class="headerlink" title="四种工作方式"></a>四种工作方式</h3><p>四种工作方式:工作方式0:13位计数器;</p>
+<p>工作方式1:16位计数器;</p>
+<p>工作方式2:自动重装8位计数器;</p>
+<p>工作方式3:T/C0分为两个8位计数器,T/C1是停止位。</p>
+<h2 id="程序计数器PC-1"><a href="#程序计数器PC-1" class="headerlink" title="程序计数器PC"></a>程序计数器PC</h2><p>是一个16位计数器,实际上PC是程序存储器的字节地址计数器,其内容是将要执行的下一条指令的地址,寻址范围64KB。不属于特殊寄存器,不能像DPTR拆成两个使用。 </p>
+<h1 id="第六章-定时器和计数器"><a href="#第六章-定时器和计数器" class="headerlink" title="第六章 定时器和计数器"></a>第六章 定时器和计数器</h1><h1 id="第七章-单片机扩展"><a href="#第七章-单片机扩展" class="headerlink" title="第七章 单片机扩展"></a>第七章 单片机扩展</h1><h1 id="第八章-人机接口"><a href="#第八章-人机接口" class="headerlink" title="第八章 人机接口"></a>第八章 人机接口</h1><h2 id="键盘"><a href="#键盘" class="headerlink" title="键盘"></a>键盘</h2><p>分为</p>
+<p>TXD 发送数据知 Transmit(tx) Data 的简写形式<br>RXD 接受数据 Receive(rx) Data 的简写形式</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/06/总结-33/" rel="next" title="周总结(33)">
+                <i class="fa fa-chevron-left"></i> 周总结(33)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/08/单片机-一/" rel="prev" title="51单片机机 一">
+                51单片机机 一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg5Ny8xMzQzMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">TinaCristal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TinaCristal" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="is.yatingsun@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-单片机原理及应用"><span class="nav-number">1.</span> <span class="nav-text">第一章 单片机原理及应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原码-反码-补码的关系"><span class="nav-number">1.1.</span> <span class="nav-text">原码 反码 补码的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机组成"><span class="nav-number">1.2.</span> <span class="nav-text">计算机组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微型计算机系统的三个层次"><span class="nav-number">1.3.</span> <span class="nav-text">微型计算机系统的三个层次</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单片机定义"><span class="nav-number">1.4.</span> <span class="nav-text">单片机定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单片机组成"><span class="nav-number">1.5.</span> <span class="nav-text">单片机组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三总线结构"><span class="nav-number">1.6.</span> <span class="nav-text">三总线结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁存器和缓冲器区别"><span class="nav-number">1.7.</span> <span class="nav-text">锁存器和缓冲器区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储器的结构和工作原理"><span class="nav-number">1.8.</span> <span class="nav-text">存储器的结构和工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据存储器与程序存储器区别"><span class="nav-number">1.9.</span> <span class="nav-text">数据存储器与程序存储器区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单片机存储系统"><span class="nav-number">1.10.</span> <span class="nav-text">单片机存储系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROM和RAM的主要区别"><span class="nav-number">1.11.</span> <span class="nav-text">ROM和RAM的主要区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算器的组成"><span class="nav-number">1.12.</span> <span class="nav-text">运算器的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单片机的应用"><span class="nav-number">1.13.</span> <span class="nav-text">单片机的应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-MCS-51单片机的结构和工作原理"><span class="nav-number">2.</span> <span class="nav-text">第二章 MCS-51单片机的结构和工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MCS-51由8个部件组成"><span class="nav-number">2.1.</span> <span class="nav-text">MCS-51由8个部件组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单片机的并行端口"><span class="nav-number">2.2.</span> <span class="nav-text">单片机的并行端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8051的中断源"><span class="nav-number">2.3.</span> <span class="nav-text">8051的中断源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序状态字PSW组成"><span class="nav-number">2.4.</span> <span class="nav-text">程序状态字PSW组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序计数器PC"><span class="nav-number">2.5.</span> <span class="nav-text">程序计数器PC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断源的中断地址区"><span class="nav-number">2.6.</span> <span class="nav-text">中断源的中断地址区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆栈"><span class="nav-number">2.7.</span> <span class="nav-text">堆栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆栈的操作原则"><span class="nav-number">2.7.1.</span> <span class="nav-text">堆栈的操作原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MCS-51系列单片机芯片的引脚"><span class="nav-number">2.8.</span> <span class="nav-text">MCS-51系列单片机芯片的引脚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MCS-51单片机的工作方式"><span class="nav-number">2.9.</span> <span class="nav-text">MCS-51单片机的工作方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MCS-51的时序定时单位"><span class="nav-number">2.10.</span> <span class="nav-text">MCS-51的时序定时单位</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章MCS-51的指令系统"><span class="nav-number">3.</span> <span class="nav-text">第三章MCS-51的指令系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#指令系统定义"><span class="nav-number">3.1.</span> <span class="nav-text">指令系统定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令系统分类"><span class="nav-number">3.2.</span> <span class="nav-text">指令系统分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令功能分类"><span class="nav-number">3.3.</span> <span class="nav-text">指令功能分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令部件的组成"><span class="nav-number">3.4.</span> <span class="nav-text">指令部件的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令寻址方式"><span class="nav-number">3.5.</span> <span class="nav-text">指令寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制转移指令"><span class="nav-number">3.6.</span> <span class="nav-text">控制转移指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查表指令"><span class="nav-number">3.7.</span> <span class="nav-text">查表指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章汇编语言程序设计"><span class="nav-number">4.</span> <span class="nav-text">第四章汇编语言程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器语言，汇编语言关系"><span class="nav-number">4.1.</span> <span class="nav-text">机器语言，汇编语言关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪指令"><span class="nav-number">4.2.</span> <span class="nav-text">伪指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器指令"><span class="nav-number">4.3.</span> <span class="nav-text">机器指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇编语言中每条语句的格式"><span class="nav-number">4.4.</span> <span class="nav-text">汇编语言中每条语句的格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息传送方式"><span class="nav-number">4.5.</span> <span class="nav-text">信息传送方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入-输出的传送信息"><span class="nav-number">4.6.</span> <span class="nav-text">输入/输出的传送信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章输入-输出和中断"><span class="nav-number">5.</span> <span class="nav-text">第五章输入/输出和中断</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#中断源"><span class="nav-number">5.1.</span> <span class="nav-text">中断源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断源分类"><span class="nav-number">5.2.</span> <span class="nav-text">中断源分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断含义"><span class="nav-number">5.3.</span> <span class="nav-text">中断含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断分类"><span class="nav-number">5.4.</span> <span class="nav-text">中断分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断处理过程"><span class="nav-number">5.5.</span> <span class="nav-text">中断处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断响应条件"><span class="nav-number">5.6.</span> <span class="nav-text">中断响应条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中断系统"><span class="nav-number">5.7.</span> <span class="nav-text">中断系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无条件传送方式优缺点"><span class="nav-number">5.8.</span> <span class="nav-text">无条件传送方式优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时器-计数器"><span class="nav-number">5.9.</span> <span class="nav-text">定时器/计数器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计数和定时功能"><span class="nav-number">5.9.1.</span> <span class="nav-text">计数和定时功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种工作方式"><span class="nav-number">5.9.2.</span> <span class="nav-text">四种工作方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序计数器PC-1"><span class="nav-number">5.10.</span> <span class="nav-text">程序计数器PC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章-定时器和计数器"><span class="nav-number">6.</span> <span class="nav-text">第六章 定时器和计数器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章-单片机扩展"><span class="nav-number">7.</span> <span class="nav-text">第七章 单片机扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章-人机接口"><span class="nav-number">8.</span> <span class="nav-text">第八章 人机接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#键盘"><span class="nav-number">8.1.</span> <span class="nav-text">键盘</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinaCristal</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

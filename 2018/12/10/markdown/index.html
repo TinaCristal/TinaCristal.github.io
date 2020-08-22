@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Markdown 是一种很流行的轻量级标记语言（lightweight markup language），广泛用于撰写带格式的文档。例如以下这段文本就是用 Markdown 的语法写成的：  　　这些用 Markdown 写成的文本，尽管本身是纯文本格式，然而读者可以很容易地看出它的文档结构。同时，还有很多工具可以自动把 Markdown 文本转换成 HTML 甚至 Word、PDF 等格式，取得">
+<meta property="og:type" content="article">
+<meta property="og:title" content="201703-3 Markdown">
+<meta property="og:url" content="http://yoursite.com/2018/12/10/markdown/index.html">
+<meta property="og:site_name" content="TinaCristal&#39;s Blog">
+<meta property="og:description" content="Markdown 是一种很流行的轻量级标记语言（lightweight markup language），广泛用于撰写带格式的文档。例如以下这段文本就是用 Markdown 的语法写成的：  　　这些用 Markdown 写成的文本，尽管本身是纯文本格式，然而读者可以很容易地看出它的文档结构。同时，还有很多工具可以自动把 Markdown 文本转换成 HTML 甚至 Word、PDF 等格式，取得">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://118.190.20.162/RequireFile.do?fid=Yy7nr9Yt">
+<meta property="og:image" content="http://118.190.20.162/RequireFile.do?fid=247472gj">
+<meta property="og:updated_time" content="2018-12-14T12:45:30.439Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="201703-3 Markdown">
+<meta name="twitter:description" content="Markdown 是一种很流行的轻量级标记语言（lightweight markup language），广泛用于撰写带格式的文档。例如以下这段文本就是用 Markdown 的语法写成的：  　　这些用 Markdown 写成的文本，尽管本身是纯文本格式，然而读者可以很容易地看出它的文档结构。同时，还有很多工具可以自动把 Markdown 文本转换成 HTML 甚至 Word、PDF 等格式，取得">
+<meta name="twitter:image" content="http://118.190.20.162/RequireFile.do?fid=Yy7nr9Yt">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/10/markdown/">
+
+
+
+
+
+  <title>201703-3 Markdown | TinaCristal's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinaCristal's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">201703-3 Markdown</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-10T23:27:00+08:00">
+                2018-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ccf认证/" itemprop="url" rel="index">
+                    <span itemprop="name">ccf认证</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Markdown 是一种很流行的轻量级标记语言（lightweight markup language），广泛用于撰写带格式的文档。例如以下这段文本就是用 Markdown 的语法写成的：</p>
+<p><img src="http://118.190.20.162/RequireFile.do?fid=Yy7nr9Yt" alt="image"></p>
+<p>　　这些用 Markdown 写成的文本，尽管本身是纯文本格式，然而读者可以很容易地看出它的文档结构。同时，还有很多工具可以自动把 Markdown 文本转换成 HTML 甚至 Word、PDF 等格式，取得更好的排版效果。例如上面这段文本通过转化得到的 HTML 代码如下所示：</p>
+<a id="more"></a>
+<p><img src="http://118.190.20.162/RequireFile.do?fid=247472gj" alt="image"></p>
+<p>　　本题要求由你来编写一个 Markdown 的转换工具，完成 Markdown 文本到 HTML 代码的转换工作。简化起见，本题定义的 Markdown 语法规则和转换规则描述如下：<br>　　●区块：区块是文档的顶级结构。本题的 Markdown 语法有 3 种区块格式。在输入中，相邻两个区块之间用一个或多个空行分隔。输出时删除所有分隔区块的空行。<br>　　○段落：一般情况下，连续多行输入构成一个段落。段落的转换规则是在段落的第一行行首插入 <code>&lt;p&gt;</code>，在最后一行行末插入 <code>&lt;/p&gt;</code>。<br>　　○标题：每个标题区块只有一行，由若干个 <code>#</code> 开头，接着一个或多个空格，然后是标题内容，直到行末。<code>#</code> 的个数决定了标题的等级。转换时，<code># Heading</code> 转换为 <code>&lt;h1&gt;Heading&lt;/h1&gt;</code>，<code>## Heading</code> 转换为 <code>&lt;h2&gt;Heading&lt;/h2&gt;</code>，以此类推。标题等级最深为 6。<br>　　○无序列表：无序列表由若干行组成，每行由 <code>*</code> 开头，接着一个或多个空格，然后是列表项目的文字，直到行末。转换时，在最开始插入一行 <code>&lt;ul&gt;</code>，最后插入一行 <code>&lt;/ul&gt;</code>；对于每行，<code>* Item</code> 转换为 <code>&lt;li&gt;Item&lt;/li&gt;</code>。本题中的无序列表只有一层，不会出现缩进的情况。<br>　　●行内：对于区块中的内容，有以下两种行内结构。<br>　　○强调：<code>_Text_</code> 转换为 <code>&lt;em&gt;Text&lt;/em&gt;</code>。强调不会出现嵌套，每行中 <code>_</code> 的个数一定是偶数，且不会连续相邻。注意 <code>_Text_</code> 的前后不一定是空格字符。<br>　　○超级链接：<code>[Text](Link)</code> 转换为 <code>&lt;a href=&quot;Link&quot;&gt;Text&lt;/a&gt;</code>。超级链接和强调可以相互嵌套，但每种格式不会超过一层。<br>输入格式<br>　　输入由若干行组成，表示一个用本题规定的 Markdown 语法撰写的文档。<br>输出格式<br>　　输出由若干行组成，表示输入的 Markdown 文档转换成产生的 HTML 代码。<br>样例输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Hello</span><br><span class="line"></span><br><span class="line">Hello, world!</span><br><span class="line">样例输出</span><br><span class="line">&lt;h1&gt;Hello&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;Hello, world!&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
+<p>评测用例规模与约定<br>　　本题的测试点满足以下条件：<br>　　●本题每个测试点的输入数据所包含的行数都不超过100，每行字符的个数（包括行末换行符）都不超过100。<br>　　●除了换行符之外，所有字符都是 ASCII 码 32 至 126 的可打印字符。<br>　　●每行行首和行末都不会出现空格字符。<br>　　●输入数据除了 Markdown 语法所需，内容中不会出现 <code>#</code>、<code>*</code>、<code>_</code>、<code>[</code>、<code>]</code>、<code>(</code>、<code>)</code>、<code>&lt;</code>、<code>&gt;</code>、<code>&amp;</code> 这些字符。<br>　　●所有测试点均符合题目所规定的 Markdown 语法，你的程序不需要考虑语法错误的情况。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">string parseLink(string a,string b)&#123;</span><br><span class="line">	string res=&quot;&quot;;</span><br><span class="line">	res+=&quot;&lt;a href=\&quot;&quot;+b+&quot;\&quot;&gt;&quot;+a+&quot;&lt;/a&gt;&quot;;</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br><span class="line">string parseFocus(string t)&#123;</span><br><span class="line">	string res=&quot;&lt;em&gt;&quot;;</span><br><span class="line">	res+=t;</span><br><span class="line">	res+=&quot;&lt;/em&gt;&quot;;</span><br><span class="line">	return res;</span><br><span class="line">	</span><br><span class="line">&#125; </span><br><span class="line">string parseL(string line)&#123;</span><br><span class="line">	string res=&quot;&quot;;</span><br><span class="line">	int i=0;</span><br><span class="line">	while(i&lt;line.size())&#123;</span><br><span class="line">	if(line[i]==&apos;[&apos;)&#123;</span><br><span class="line">		int j=i+1;</span><br><span class="line">		while(line[j]!=&apos;]&apos;) j++;</span><br><span class="line">		string txt=line.substr(i+1,j-i-1);</span><br><span class="line">		assert(line[j+1]==&apos;(&apos;);</span><br><span class="line">		i=j+1;</span><br><span class="line">		//!!</span><br><span class="line">		while(line[j]!=&apos;)&apos;) j++;</span><br><span class="line">		</span><br><span class="line">		string link=line.substr(i+1,j-i-1);</span><br><span class="line">		string t1=parseL(txt);</span><br><span class="line">		string l1=parseL(link);</span><br><span class="line">		res+=parseLink(t1,l1);</span><br><span class="line">		i=j+1;</span><br><span class="line">	&#125;</span><br><span class="line">	else if(line[i]==&apos;_&apos;)&#123;</span><br><span class="line">			int j=i+1;</span><br><span class="line">		while(line[j]!=&apos;_&apos;) j++;</span><br><span class="line">		string txt=line.substr(i+1,j-i-1);</span><br><span class="line">		string ntxt=parseL(txt);</span><br><span class="line">		res+=parseFocus(ntxt);</span><br><span class="line">		i=j+1;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		//!</span><br><span class="line">		res+=line[i];</span><br><span class="line">		i++;</span><br><span class="line">	&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	return res;	</span><br><span class="line">&#125;</span><br><span class="line">string parsePa(vector&lt;string&gt; v)&#123;</span><br><span class="line">	string res=&quot;&lt;p&gt;&quot;;</span><br><span class="line">	for(int i=0;i&lt;v.size();i++)&#123;</span><br><span class="line">			res+=parseL(v[i]);</span><br><span class="line">			if(v.size()!=0&amp;&amp;i!=v.size()-1) res+=&quot;\n&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	res+=&quot;&lt;/p&gt;\n&quot;;</span><br><span class="line">	return res;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">string parseHeads(vector&lt;string&gt; v)&#123;</span><br><span class="line">	assert(v.size()==1);</span><br><span class="line">	string t=v[0];</span><br><span class="line">	int lev=1;</span><br><span class="line">	int i=0;</span><br><span class="line">	while(t[i]==&apos;#&apos;) i++;</span><br><span class="line">	lev=i;</span><br><span class="line">	while(t[i]==&apos; &apos;)i++;</span><br><span class="line">	//substr的位置是i 不是i+1  </span><br><span class="line">	string con=t.substr(i,-1);</span><br><span class="line">	con=parseL(con);</span><br><span class="line">	string res=&quot;&quot;;</span><br><span class="line">	char ss[10];</span><br><span class="line">	itoa(lev,ss,10);</span><br><span class="line">		</span><br><span class="line">	res=&quot;&lt;h&quot;+(string)ss+&quot;&gt;&quot;+con+&quot;&lt;/h&quot;+(string)ss+&quot;&gt;\n&quot;;</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">string parseU(vector&lt;string&gt; v)&#123;</span><br><span class="line">	string res=&quot;&quot;;</span><br><span class="line">	res+=&quot;&lt;ul&gt;\n&quot;;</span><br><span class="line">	for(int i=0;i&lt;v.size();i++)&#123;</span><br><span class="line">		res+=&quot;&lt;li&gt;&quot;;</span><br><span class="line">		int j=0;</span><br><span class="line">		//!</span><br><span class="line">	if(v[i][j]==&apos;*&apos;) j++;</span><br><span class="line">	while(v[i][j]==&apos; &apos;)j++;</span><br><span class="line">		res+=parseL(v[i].substr(j,-1));</span><br><span class="line">		res+=&quot;&lt;/li&gt;\n&quot;;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	res+=&quot;&lt;/ul&gt;\n&quot;;</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	string s;</span><br><span class="line">	int block;</span><br><span class="line">	vector&lt;string&gt; v;</span><br><span class="line">	string res=&quot;&quot;;</span><br><span class="line">	while(getline(cin,s)||v.size()&gt;0) </span><br><span class="line">	&#123;</span><br><span class="line">		if(s.empty())&#123;</span><br><span class="line">			if(block!=0)&#123;</span><br><span class="line">			switch(block)&#123;</span><br><span class="line">				case 1:</span><br><span class="line">					res+=parseHeads(v);</span><br><span class="line">					</span><br><span class="line">					break;</span><br><span class="line">				case 2:</span><br><span class="line">					res+=parseU(v);					</span><br><span class="line">					break;</span><br><span class="line">				case 3:</span><br><span class="line">					res+=parsePa(v);</span><br><span class="line">					break;</span><br><span class="line">				default:</span><br><span class="line">					break;					</span><br><span class="line">			&#125;</span><br><span class="line">			//!!</span><br><span class="line">				  v.resize(0);</span><br><span class="line">					block=0;</span><br><span class="line">			&#125;</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">		else if(s[0]==&apos;#&apos;)&#123;</span><br><span class="line">			v.push_back(s);</span><br><span class="line">			block=1;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(s[0]==&apos;*&apos;)&#123;</span><br><span class="line">			v.push_back(s);</span><br><span class="line">			block=2;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			v.push_back(s);</span><br><span class="line">		block=3;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">				</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">			&#125;</span><br><span class="line">	cout&lt;&lt;res;</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复习了一遍 代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">string parseF(string w)&#123;</span><br><span class="line">	string rs=&quot;&lt;em&gt;&quot;+w+&quot;&lt;/em&gt;&quot;;</span><br><span class="line">	return rs;</span><br><span class="line">&#125;</span><br><span class="line">string parseLink(string txt,string link)&#123;</span><br><span class="line">	return &quot;&lt;a href=\&quot;&quot;+link+&quot;\&quot;&gt;&quot;+txt+&quot;&lt;/a&gt;&quot;;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">string parseL(string line)&#123;</span><br><span class="line">	int i=0;</span><br><span class="line">	string rs=&quot;&quot;;</span><br><span class="line">	while(i&lt;line.size())&#123;</span><br><span class="line">	if(line[i]==&apos;_&apos;)&#123;</span><br><span class="line">		int j=line.find(&apos;_&apos;,i+1);</span><br><span class="line">		string w=line.substr(i+1,j-i-1);</span><br><span class="line">		w=parseL(w);</span><br><span class="line">		w=parseF(w);</span><br><span class="line">		rs+=w;</span><br><span class="line">		i=j+1; </span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	else if(line[i]==&apos;[&apos;)&#123;</span><br><span class="line">			int k=line.find(&quot;](&quot;,i+1);</span><br><span class="line">			int next=line.find(&apos;)&apos;,k+1);</span><br><span class="line">			string txt=line.substr(i+1,k-i-1);</span><br><span class="line">			string link=line.substr(k+2,next-k-2);</span><br><span class="line">			txt=parseL(txt);</span><br><span class="line">			link=parseL(link);</span><br><span class="line">			rs+=parseLink(txt,link);</span><br><span class="line">			i=next+1;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		rs+=line[i]; 	</span><br><span class="line">		i++;</span><br><span class="line">	&#125; 	</span><br><span class="line">	&#125;</span><br><span class="line">	return rs;</span><br><span class="line">&#125;</span><br><span class="line">string parseHead(vector&lt;string&gt; lines)&#123;</span><br><span class="line">	assert(lines.size()==1);</span><br><span class="line">	int i=0;</span><br><span class="line">	string line=lines[0];</span><br><span class="line">	while(line[i]==&apos;#&apos;) i++;</span><br><span class="line">	int level=i;</span><br><span class="line">	while(line[i]==&apos; &apos;) i++;</span><br><span class="line">	string con=line.substr(i,-1);</span><br><span class="line">	con=parseL(con);</span><br><span class="line">	char ss[10];</span><br><span class="line">	itoa(level,ss,10);</span><br><span class="line">	string rs=&quot;&lt;h&quot;+(string)ss+&quot;&gt;&quot;+con+&quot;&lt;/h&quot;+(string)ss+&quot;&gt;\n&quot;;</span><br><span class="line">	return rs; </span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">string parseU(vector&lt;string&gt; lines)&#123;</span><br><span class="line">	string rs=&quot;&lt;ul&gt;\n&quot;;</span><br><span class="line">	for(int i=0;i&lt;lines.size();i++)&#123;</span><br><span class="line">		rs+=&quot;&lt;li&gt;&quot;;</span><br><span class="line">		string ss=lines[i];</span><br><span class="line">		int j=0;</span><br><span class="line">		while(ss[j]==&apos;*&apos;) j++;</span><br><span class="line">		while(ss[j]==&apos; &apos;) j++;</span><br><span class="line">		string w=ss.substr(j,-1);</span><br><span class="line">		rs+=parseL(w);</span><br><span class="line">		rs+=&quot;&lt;/li&gt;\n&quot;;</span><br><span class="line">		</span><br><span class="line">	&#125;	</span><br><span class="line">	rs+=&quot;&lt;/ul&gt;\n&quot;;</span><br><span class="line">	return rs;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">string  parseP(vector&lt;string&gt; lines)&#123;</span><br><span class="line">		string rs=&quot;&lt;p&gt;&quot;;</span><br><span class="line">	for(int i=0;i&lt;lines.size();i++)&#123;</span><br><span class="line">		rs+=parseL(lines[i]);</span><br><span class="line">		if(i!=lines.size()-1) rs+=&quot;\n&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	rs+=&quot;&lt;/p&gt;\n&quot;;</span><br><span class="line">	return rs;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	vector&lt;string&gt; vec;</span><br><span class="line">	string line;</span><br><span class="line">	int type=0;</span><br><span class="line">	string rs=&quot;&quot;;</span><br><span class="line">	while(getline(cin,line)||vec.size()&gt;0)&#123;</span><br><span class="line">		if(line.empty())&#123;</span><br><span class="line">			if(type!=0)&#123;</span><br><span class="line">		</span><br><span class="line">			if(type==1)&#123;</span><br><span class="line">				rs+=parseHead(vec);</span><br><span class="line">			&#125;</span><br><span class="line">			else if(type==2)&#123;</span><br><span class="line">					rs+=parseU(vec);</span><br><span class="line">			&#125; </span><br><span class="line">			else if(type==3)&#123;</span><br><span class="line">					rs+=parseP(vec);</span><br><span class="line">			&#125;</span><br><span class="line">			vec.resize(0);</span><br><span class="line">			type=0;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(line[0]==&apos;#&apos;)&#123;</span><br><span class="line">			type=1;</span><br><span class="line">		vec.push_back(line);			</span><br><span class="line">		&#125; </span><br><span class="line">		else if(line[0]==&apos;*&apos;)&#123;</span><br><span class="line">			type=2;</span><br><span class="line">			vec.push_back(line);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			type=3;</span><br><span class="line">			vec.push_back(line);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	 cout&lt;&lt;rs;</span><br><span class="line">	 &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/10/5701/" rel="next" title="HDU5701 中位数计数【中位数+水题】">
+                <i class="fa fa-chevron-left"></i> HDU5701 中位数计数【中位数+水题】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/11/json查询/" rel="prev" title="201709-3 JSON查询">
+                201709-3 JSON查询 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg5Ny8xMzQzMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">TinaCristal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TinaCristal" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="is.yatingsun@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinaCristal</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

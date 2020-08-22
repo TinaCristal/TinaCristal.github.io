@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="表情识别,数据集,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CK and CK+">
+<meta name="keywords" content="表情识别,数据集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="表情识别数据集整理">
+<meta property="og:url" content="http://yoursite.com/2018/05/06/表情识别数据集/index.html">
+<meta property="og:site_name" content="TinaCristal&#39;s Blog">
+<meta property="og:description" content="CK and CK+">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-07T06:19:51.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="表情识别数据集整理">
+<meta name="twitter:description" content="CK and CK+">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/06/表情识别数据集/">
+
+
+
+
+
+  <title>表情识别数据集整理 | TinaCristal's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinaCristal's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/表情识别数据集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">表情识别数据集整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-06T16:56:39+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据集/" itemprop="url" rel="index">
+                    <span itemprop="name">数据集</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CK and CK+<br><a id="more"></a><br>It contains 97 subjects, which posed in a lab situation for the six universal expressions and the neutral expression. Its extension CK+ contains 123 subjects but the new videos were shot in a similar environment.<br>Reference: P. Lucey, J. F. Cohn, T. Kanade, J. Saragih, Z. Ambadar, and I. Matthews, “The Extended Cohn-Kanade Dataset (CK+): A complete dataset for action unit and emotion-specified expression,” in Proceedings of IEEE Conference on Computer Vision and Pattern Recognition Workshops CVPR4HB’10, 2010, pp. 94–101.<br>Website: <a href="http://www.pitt.edu/~emotion/ck-spread.htm" target="_blank" rel="noopener">http://www.pitt.edu/~emotion/ck-spread.htm</a><br>Modalities: Visual<br>说明: ck只有静态图片，CK+包括视频。表情标签为分类离散值。</p>
+<p>JAFFE<br>It contains 219 images of 10 Japanese females. However, it has a limited number of samples, subjects and has been created in a lab controlled environment.<br>Website: <a href="http://www.kasrl.org/jaffe.html" target="_blank" rel="noopener">http://www.kasrl.org/jaffe.html</a><br>Modalities: visual<br>说明: 只有219张表情图片。表情标签为分类离散值。</p>
+<p>HUMAINE Database<br>Datafiles containing emotion labels, gesture labels, speech labels and FAPS all readable in ANVI（标签等信息要用ANVI工具才能打开）<br>Modalities: Audio+visual + gesture<br>Website: <a href="http://emotion-research.net/download/pilot-db/" target="_blank" rel="noopener">http://emotion-research.net/download/pilot-db/</a><br>说明: 下载数据集后里面只有视频，没有标签等信息。</p>
+<p>Recola database<br>Totally 34 subjects; 14 male, 20 female<br>Reference: FABIEN R., ANDREAS S., JUERGEN S., DENIS L.. Introducing the RECOLA multimodal corpus of collaborative and affective interactions[C]//10th IEEE Int’l conf. and workshops on automatic face and gesture recognition. Shanghai, CN: IEEE Press, 2013:1-8.<br>Website: <a href="http://diuf.unifr.ch/diva/recola/index.html" target="_blank" rel="noopener">http://diuf.unifr.ch/diva/recola/index.html</a><br>Modalities: Audio+visual+ EDA, ECG（生理模态）<br>说明: 数据集共34个视频，表情标签为Arousal-Valence的连续值。标签存在csv文件里。</p>
+<p>MMI<br>The database consists of over 2900 videos and high-resolution still images of 75 subjects. It is fully annotated for the presence of AUs in videos (event coding), and partially coded on frame-level, indicating for each frame whether an AU is in either the neutral, onset, apex or offset phase. A small part was annotated for audio-visual laughters. The database is freely available to the scientific community.<br>Reference:<br>a) Induced Disgust, Happiness and Surprise: an Addition to the MMI Facial Expression Database<br>M. F. Valstar, M. Pantic. Proceedings of Int’l Conf. Language Resources and Evaluation, Workshop on EMOTION. Malta, pp. 65 - 70, May 2010.<br>b) Web-based database for facial expression analysis,M. Pantic, M. F. Valstar, R. Rademaker, L. Maat. Proceedings of IEEE Int’l Conf. Multimedia and Expo (ICME’05). Amsterdam, The Netherlands, pp. 317 - 321, July 2005.<br>Modalities: visual(视频)<br>Website: <a href="http://mmifacedb.eu/" target="_blank" rel="noopener">http://mmifacedb.eu/</a><br>　　　　  <a href="http://ibug.doc.ic.ac.uk/research/mmi-database/" target="_blank" rel="noopener">http://ibug.doc.ic.ac.uk/research/mmi-database/</a><br>说明: 该数据集很大，全部包括2900个视频，标签主要是AU的标签，标签存在xml文件里。</p>
+<p>NVIE 中科大采集的一个数据集<br>中科大NVIE数据集包括自发表情库和人为表情库，本实验采用其中的自发表情库。自发表情库是通过特定视频诱发并在三种光照下（正面、左侧、右侧光照）采集的表情库，其中正面光照103人，左侧光照99人，右侧光照103人。每种光照下，每人有六种表情（喜悦、愤怒、哀 伤、恐惧、厌恶、惊奇）中的三种以上，每种表情的平静帧以及最大帧都已挑出<br>Reference: WANG Shangfei, LIU Zhilei, LV Siliang, LV Yanpeng, et al. A Natural Visible and Infrared Facial Expression Database for Expression Recognition and Emotion Inference[J]. IEEE Transactions on Multimedia, 2010, 12(7): 682-691.<br>Website: <a href="http://nvie.ustc.edu.cn/" target="_blank" rel="noopener">http://nvie.ustc.edu.cn/</a><br>Modalities: visual(图片)<br>说明: 标签以Excel文件给出，标签包括表情类的强度，如disgust的表情强度。标签还包括Arousal-Valence标签。</p>
+<p>RU-FACS database<br>This database consists of spontaneous facial expressions from multiple views, with ground truth FACS codes provided by two facial expression experts.<br>We have collected data from 100 subjects, 2.5 minutes each. This database constitutes a significant contribution towards the 400-800 minute database recommended in the feasibility study for fully automating FACS. To date we have human FACS coded the upper faces of 20% the subjects.<br>Reference: M. S. Bartlett, G. Littlewort, M. G. Frank, C. Lainscsek, I. R. Fasel, and J. R. Movellan, “Automatic recognition of facial actions in spontaneous expressions,” Journal of Multimedia, vol. 1, no. 6, pp. 22–35, 2006. 3, 5<br>Website: <a href="http://mplab.ucsd.edu/grants/project1/research/rufacs1-dataset.html" target="_blank" rel="noopener">http://mplab.ucsd.edu/grants/project1/research/rufacs1-dataset.html</a><br>说明: 该数据集的标签是FACS编码的标签（只有部分视频才有标签），目前该数据集还未向研究者公开。</p>
+<p>Belfast naturalistic database<br>The Belfast database consists of a combination of studio recordings and TV programme grabs labelled with particular expressions. The number of TV clips in this database is sparse<br>Modalities: Audio-visual(视频)<br>Reference: E. Douglas-Cowie, R. Cowie, and M. Schr¨oder, “A New Emotion Database: Considerations, Sources and Scope,” in ISCAITRW on Speech and Emotion, 2000, pp. 39–44.<br>Website: <a href="http://sspnet.eu/2010/02/belfast-naturalistic/" target="_blank" rel="noopener">http://sspnet.eu/2010/02/belfast-naturalistic/</a><br>说明: 数据集为视频，视频包括speech的情感识别</p>
+<p>GEMEP Corpus<br>The GEneva Multimodal Emotion Portrayals (GEMEP) is a collection of audio and video recordings featuring 10 actors portraying 18 affective states, with different verbal contents and different modes of expression.<br>Modalities: Audio-visual<br>Reference: T. B¨anziger and K. Scherer, “Introducing the Geneva Multimodal Emotion Portrayal (GEMEP) Corpus,” in Blueprint for affective computing: A sourcebook, K. Scherer, T. B¨anziger, and E. Roesch, Eds. Oxford, England: Oxford University Press, 2010<br>Website: <a href="http://www.affective-sciences.org/gemep" target="_blank" rel="noopener">http://www.affective-sciences.org/gemep</a><br> 　　　　 <a href="http://sspnet.eu/2011/05/gemep-fera/" target="_blank" rel="noopener">http://sspnet.eu/2011/05/gemep-fera/</a><br>说明: FERA2011比赛采用此数据集，标签主要是分类。</p>
+<p>Paleari<br>Reference: M. Paleari, R. Chellali, and B. Huet, “Bimodal emotion recognition,” in Proceeding of the Second International Conference on Social Robotics ICSR’10, 2010, pp. 305–314.<br>该数据集我没找到它的官网，我查看了上面那个引用文章的摘要发现那篇文章不是介绍表情数据集的。那个文章在springer上，学校的网只能查到到摘要和第一章。</p>
+<p>VAM corpus<br>The VAM corpus consists of 12 hours of recordings of the German TV talk-show “Vera am Mittag” (Vera at noon). They are segmented into broadcasts, dialogue acts and utterances, respectively. This audio -visual speech corpus contains spontaneous and very emotional speech recorded from unscripted, authentic discussions between the guests of the talk-show<br>Modalities: Audio-visual<br>Reference: M. Grimm, K. Kroschel, and S. Narayanan, “The Vera am Mittag German audio-visual emotional speech database,” in IEEE International Confernce on Multimedia and Expo ICME’08, 2008, pp. 865–868<br>Website: <a href="http://emotion-research.net/download/vam" target="_blank" rel="noopener">http://emotion-research.net/download/vam</a><br>说明: 该数据集主要是speech视频，标签为连续值，具体包括三个维度：valence (negative vs. positive), activation (calm vs. excited) and dominance (weak vs. strong)。</p>
+<p>SSPNet Conflict Corpus（严格意义上不是表情识别数据集）<br>The “SSPNet Conflict Corpus” includes 1430 clips (30 seconds each) extracted from 45 political debates televised in Switzerland. The clips are in French<br>Modalities: Audio-visual<br>Reference: S.Kim, M.Filippone, F.Valente and A.Vinciarelli “Predicting the Conflict Level in Television Political Debates: an Approach Based on Crowdsourcing, Nonverbal Communication and Gaussian Processes“ Proceedings of ACM International Conference on Multimedia, pp. 793-796, 2012.<br>Website: <a href="http://www.dcs.gla.ac.uk/vincia/?p=270" target="_blank" rel="noopener">http://www.dcs.gla.ac.uk/vincia/?p=270</a><br>说明: 该数据集主要是政治辩论中的视频，标签为conflict level。</p>
+<p>Semaine database<br>The database contains approximately 240 character conversations, and recording is still ongoing. Currently approximately 80 conversations have been fully annotated for a number of dimensions in a fully continuous way using FeelTrace.<br>Website: <a href="http://semaine-db.eu/" target="_blank" rel="noopener">http://semaine-db.eu/</a><br>Modalities: Audio-visual<br>Reference: The SEMAINE database: Annotated multimodal records of emotionally coloured conversations between a person and a limited agent G. Mckeown, M. F. Valstar, R. Cowie, M. Pantic, M. Schroeder. IEEE Transactions on Affective Computing. 3: pp. 5 - 17, Issue 1. April 2012.<br>说明: 通过人机对话来触发的视频，标签为连续的情感维度值，不是分类。</p>
+<p>AFEW database(Acted Facial Expressions In The Wild)<br>Acted Facial Expressions In The Wild (AFEW) is a dynamic temporal facial expressions data corpus consisting of close to real world environment extracted from movies.<br>Reference: Abhinav Dhall, Roland Goecke, Simon Lucey, Tom Gedeon, Collecting Large, Richly Annotated Facial-Expression Databases from Movies, IEEE Multimedia 2012.<br>Website: <a href="https://cs.anu.edu.au/few/AFEW.html" target="_blank" rel="noopener">https://cs.anu.edu.au/few/AFEW.html</a><br>Modalities: Audio-visual(电影剪辑片断)<br>说明: 该数据集的内容为从电影中剪辑的包含表情的视频片段，表情标签为六类基本表情+中性表情，annotation的信息保存在xml文件中。<br>AFEW数据集为Emotion Recognition In The Wild Challenge (EmotiW)系列情感识别挑战赛使用的数据集，该比赛从2013开始每年举办一次。<br>EmotiW官网：<a href="https://cs.anu.edu.au/few/" target="_blank" rel="noopener">https://cs.anu.edu.au/few/</a></p>
+<p>SFEW database(Static Facial Expressions in the Wild)<br>Static Facial Expressions in the Wild (SFEW) has been developed by selecting frames from AFEW<br>Reference: Abhinav Dhall, Roland Goecke, Simon Lucey, and Tom Gedeon. Static Facial Expressions in Tough Conditions: Data, Evaluation Protocol And Benchmark, First IEEE International Workshop on Benchmarking Facial Image Analysis Technologies BeFIT, IEEE International Conference on Computer Vision ICCV2011, Barcelona, Spain, 6-13 November 2011<br>Website: <a href="https://cs.anu.edu.au/few/AFEW.html" target="_blank" rel="noopener">https://cs.anu.edu.au/few/AFEW.html</a><br>Modalities: Visual<br>说明: 该数据集是从AFEW数据集中抽取的有表情的静态帧，表情标签为六类基本表情+中性表情，annotation的信息保存在xml文件中。</p>
+<p>AVEC系列数据集<br>AVEC是从2011开始每一年举办一次的表情识别挑战赛，表情识别的模型主要采用的连续情感模型。其中AVEC2012使用的情感维度为Arousal、Valence、Expectancy、Power； AVEC2013的情感维度为Valence和Arousal；AVEC2014的情感维度Valence、Arousal和Dominance。<br>AVEC2013和AVEC2014引入了depression recognition.<br>Modalities: Audio-visual<br>Website:<br><a href="http://sspnet.eu/avec2011/" target="_blank" rel="noopener">http://sspnet.eu/avec2011/</a><br><a href="http://sspnet.eu/avec2012/" target="_blank" rel="noopener">http://sspnet.eu/avec2012/</a><br><a href="http://sspnet.eu/avec2013/" target="_blank" rel="noopener">http://sspnet.eu/avec2013/</a><br><a href="http://sspnet.eu/avec2014/" target="_blank" rel="noopener">http://sspnet.eu/avec2014/</a><br>Reference: Michel Valstar , Björn W. Schuller , Jarek Krajewski , Roddy Cowie , Maja Pantic, AVEC 2014: the 4th international audio/visual emotion challenge and workshop, Proceedings of the ACM International Conference on Multimedia, November 03-07, 2014, Orlando, Florida, USA<br>说明:标签主要是针对的情感维度，通过csv的形式给出的。</p>
+<p>LIRIS-ACCEDE数据集<br>LIRIS-ACCEDE数据集主要包含三个部分:<br>Discrete LIRIS-ACCEDE - Induced valence and arousal rankings for 9800 short video excerpts extracted from 160 movies. Estimated affective scores are also available.<br>Continuous LIRIS-ACCEDE - Continuous induced valence and arousal self-assessments for 30 movies. Post-processed GSR measurements are also available.<br>MediaEval 2015 affective impact of movies task - Violence annotations and affective classes for the 9800 excerpts of the discrete LIRIS-ACCEDE part, plus for additional 1100 excerpts used to extend the test set for the MediaEval 2015 affective impact of movies task.<br>Modalities: Audio-visual<br>Website:<br><a href="http://liris-accede.ec-lyon.fr/index.php" target="_blank" rel="noopener">http://liris-accede.ec-lyon.fr/index.php</a><br>Reference:<br>Y. Baveye, E. Dellandrea, C. Chamaret, and L. Chen, “LIRIS-ACCEDE: A Video Database for Affective Content Analysis,” in IEEE Transactions on Affective Computing, 2015.<br>Y. Baveye, E. Dellandrea, C. Chamaret, and L. Chen, “Deep Learning vs. Kernel Methods: Performance for Emotion Prediction in Videos,” in 2015 Humaine Association Conference on Affective Computing and Intelligent Interaction (ACII), 2015<br>M. Sjöberg, Y. Baveye, H. Wang, V. L. Quang, B. Ionescu, E. Dellandréa, M. Schedl, C.-H. Demarty, and L. Chen, “The mediaeval 2015 affective impact of movies task,” in MediaEval 2015 Workshop, 2015<br>说明: 该数据集既有离散的情感数据又有基于维度的情感数据。</p>
+<p>几个重点参考的网站<br><a href="http://emotion-research.net/wiki/Databases" target="_blank" rel="noopener">http://emotion-research.net/wiki/Databases</a><br><a href="http://sspnet.eu/category/sspnet_resource_categories/resource_type_classes/dataset/" target="_blank" rel="noopener">http://sspnet.eu/category/sspnet_resource_categories/resource_type_classes/dataset/</a><br><a href="http://ibug.doc.ic.ac.uk/resources" target="_blank" rel="noopener">http://ibug.doc.ic.ac.uk/resources</a><br><a href="http://www.ecse.rpi.edu/~cvrl/database/other_facial_expression.html" target="_blank" rel="noopener">http://www.ecse.rpi.edu/~cvrl/database/other_facial_expression.html</a></p>
+<p>另外还有emotionet,affectnet数据集都是百万级别的数据，可自行查看官网</p>
+<p>综合了一下，打算使用CK+的数据库 来写表情识别的项目<br>下载数据库后有以下四个文件</p>
+<p>1) The Images (cohn-kanade-images.zip) - there are 593 sequences across 123 subjects which are FACS coded at the peak frame. All sequences are from the neutral face to the peak expression.</p>
+<p>2) The Landmarks (Landmarks.zip) - All sequences are AAM tracked with 68points landmarks for each image.</p>
+<p>3) The FACS coded files (FACS_labels.zip) - for each sequence (593) there is only 1 FACS file, which is the last frame (the peak frame). Each line of the file corresponds to a specific AU and then the intensity. An example is given below.</p>
+<p>4) The Emotion coded files (Emotion_labels.zip) - ONLY 327 of the 593 sequences have emotion sequences. This is because these are the only ones the fit the prototypic definition. Like the FACS files, there is only 1 Emotion file for each sequence which is the last frame (the peak frame). There should be only one entry and the number will range from 0-7 (i.e. 0=neutral, 1=anger, 2=contempt, 3=disgust, 4=fear, 5=happy, 6=sadness, 7=surprise). N.B there is only 327 files- IF THERE IS NO FILE IT MEANS THAT THERE IS NO EMOTION LABEL (sorry to be explicit but this will avoid confusion).</p>
+<p>The Images (cohn-kanade-images.zip)图片库中包含了从平静到表情表现峰值的图片，实际使用中建议使用比较明显的图片，并进行相应的预处理。</p>
+<p>Emotion_labels.zip标签压缩包中<br>0-中性<br>1-愤怒<br>2-蔑视<br>3-厌恶<br>4-恐惧<br>5-高兴<br>6-悲伤<br>7-惊讶<br>参考自<a href="https://blog.csdn.net/yinghua2016/article/details/77323537" target="_blank" rel="noopener">https://blog.csdn.net/yinghua2016/article/details/77323537</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/表情识别-数据集/" rel="tag"># 表情识别,数据集</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/06/基于CNN的年龄和性别预测/" rel="next" title="基于CNN的年龄和性别检测">
+                <i class="fa fa-chevron-left"></i> 基于CNN的年龄和性别检测
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/06/周总结（1）/" rel="prev" title="周总结(1)">
+                周总结(1) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg5Ny8xMzQzMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">TinaCristal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TinaCristal" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="is.yatingsun@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinaCristal</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

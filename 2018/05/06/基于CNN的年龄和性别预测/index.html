@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CNN,年龄和性别检测,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原文地址：http://blog.csdn.net/hjimce/article/details/49255013 作者：hjimce 一、相关理论 　　本篇博文主要讲解2015年一篇paper《Age and Gender Classification using Convolutional Neural Networks》，个人感觉这篇文献没啥难度，只要懂得Alexnet，实现这篇文献的算法，">
+<meta name="keywords" content="CNN,年龄和性别检测">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于CNN的年龄和性别检测">
+<meta property="og:url" content="http://yoursite.com/2018/05/06/基于CNN的年龄和性别预测/index.html">
+<meta property="og:site_name" content="TinaCristal&#39;s Blog">
+<meta property="og:description" content="原文地址：http://blog.csdn.net/hjimce/article/details/49255013 作者：hjimce 一、相关理论 　　本篇博文主要讲解2015年一篇paper《Age and Gender Classification using Convolutional Neural Networks》，个人感觉这篇文献没啥难度，只要懂得Alexnet，实现这篇文献的算法，">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-06T15:31:27.539Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于CNN的年龄和性别检测">
+<meta name="twitter:description" content="原文地址：http://blog.csdn.net/hjimce/article/details/49255013 作者：hjimce 一、相关理论 　　本篇博文主要讲解2015年一篇paper《Age and Gender Classification using Convolutional Neural Networks》，个人感觉这篇文献没啥难度，只要懂得Alexnet，实现这篇文献的算法，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/06/基于CNN的年龄和性别预测/">
+
+
+
+
+
+  <title>基于CNN的年龄和性别检测 | TinaCristal's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinaCristal's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/基于CNN的年龄和性别预测/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinaCristal">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinaCristal's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基于CNN的年龄和性别检测</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-06T16:38:05+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文地址：<a href="http://blog.csdn.net/hjimce/article/details/49255013" target="_blank" rel="noopener">http://blog.csdn.net/hjimce/article/details/49255013</a></p>
+<p>作者：hjimce</p>
+<p>一、相关理论</p>
+<p>　　本篇博文主要讲解2015年一篇paper《Age and Gender Classification using Convolutional Neural Networks》，个人感觉这篇文献没啥难度，只要懂得Alexnet，实现这篇文献的算法，会比较容易。其实读完这篇paper之后，我一直在想paper的创新点在哪里？因为我实在没有看出paper的创新点在哪里，估计是自己水平太lower了，看文献没<br>抓到文献的创新点。<br><a id="more"></a><br>难道是因为利用CNN做年龄和性别分类的paper很少吗？网上搜索了一下，性别预测，以前很多都是用SVM算法，用CNN搞性别分类就只搜索到这一篇文章。个人感觉利用CNN进行图片分类已经不是什么新鲜事了，年龄、和性别预测，随便搞个CNN网络，然后开始训练跑起来，也可以获得不错的精度。</p>
+<p>　　性别分类自然而然是二分类问题，然而对于年龄怎么搞？年龄预测是回归问题吗？paper采用的方法是把年龄划分为多个年龄段，每个年龄段相当于一个类别，这样性别也就多分类问题了。所以我们不要觉得现在的一些APP，功能好像很牛逼，什么性别、年龄、衣服类型、是否佩戴眼镜等识别问题，其实这种识别对于CNN来说，基本上是松松搞定的事，当然你如果要达到非常高的识别精度，是另外一回事了，就需要各种调参了。</p>
+<p>言归正传，下面开始讲解2015年paper《Age and Gender Classification using Convolutional Neural Networks》的网络结构，这篇文章没有什么新算法，只有调参，改变网络层数、卷积核大小等……所以如果已经对Alexnet比较熟悉的，可能会觉得看起来没啥意思，这篇papar的相关源码和训练数据，文献作者有给我们提供，可以到Caffe zoo model：<a href="https://github.com/BVLC/caffe/wiki/Model-Zoo" target="_blank" rel="noopener">https://github.com/BVLC/caffe/wiki/Model-Zoo</a>  或者文献的主页：<a href="http://www.openu.ac.il/home/hassner/projects/cnn_agegender/。下载相关训练好的模型，paper性别、年龄预测的应用场景比较复杂，都是一些非常糟糕的图片，比较模糊的图片等，所以如果我们想要直接利用paper训练好的模型，用到我们自己的项目上，可能精度会比较低，后面我将会具体讲一下利用paper的模型进行fine-tuning，以适应我们的应用，提高我们自己项目的识别精度。" target="_blank" rel="noopener">http://www.openu.ac.il/home/hassner/projects/cnn_agegender/。下载相关训练好的模型，paper性别、年龄预测的应用场景比较复杂，都是一些非常糟糕的图片，比较模糊的图片等，所以如果我们想要直接利用paper训练好的模型，用到我们自己的项目上，可能精度会比较低，后面我将会具体讲一下利用paper的模型进行fine-tuning，以适应我们的应用，提高我们自己项目的识别精度。</a></p>
+<p>二、算法实现</p>
+<p>因为paper的主页，有提供网络结构的源码，我将结合网络结构文件进行讲解。</p>
+<p>1、 网络结构</p>
+<p>Paper所用的网络包含：3个卷积层，还有2个全连接层。这个算是层数比较少的CNN网络模型了，这样可以避免过拟合。对于年龄的识别，paper仅仅有8个年龄段，相当于8分类模型；然后对于性别识别自然而然是二分类问题了。</p>
+<p>然后图像处理直接采用3通道彩色图像进行处理，图片6都统一缩放到256<em>256，然后再进行裁剪，为227</em>227（训练过程随机裁剪，验证测试过程通过矩形的四个角+中心裁剪），也就是说网络的输入时227*227的3通道彩色图像，总之基本上跟Alexnet一样。</p>
+<p>网络模型：</p>
+<p>(1)第一层：采用96个卷积核，每个卷积核参数个数为3<em>7</em>7，这个就相当于3个7<em>7大小的卷积核在每个通道进行卷积。激活函数采用ReLU，池化采用最大重叠池化，池化的size选择3</em>3，strides选择2。然后接着再来一个局部响应归一化层。什么叫局部响应归一化，自己可以查看一下文献：《ImageNet Classification with Deep Convolutional Neural Networks》，局部响应归一化可以提高网络的泛化能力。</p>
+<p>局部响应归一化，这个分成两种情况，一种是3D的归一化，也就是特征图之间对应像素点的一个归一化。还有一种是2D归一化，就是对特征图的每个像素的局部做归一化。局部响应归一化其实这个可有可无，精度提高不了多少，如果你还不懂上面那个公式也没有关系。我们可以利用最新的算法：Batch Normalize ，这个才牛逼呢，2015年，我觉得最牛逼的算法之一，不仅提高了训练速度，连精度也提高了。过程：通过7<em>7大小的卷积核，对227</em>227图片卷积，然后特征图的个数为96个，每个特征图都是三通道的,这个作者没有讲到卷积层的stride大小，不过我们大体可以推测出来，因为paper的网络结构是模仿：ImageNet Classification with Deep Convolutional Neural Networks的网络结构的，连输入图片的大小也是一样的，这篇文献的第一层如下所示：</p>
+<p>我们可以推测出，paper选择的卷积步长为4，这样经过卷积后，然后pad为2，这样经过卷积后图片的大小为：(227-7)/4+1=56。然后经过3<em>3，且步长为2的大小，进行重叠池化，可以得到：56/2=28</em>28大小的图片，具体边界需要补齐。下面是原文的第一层结构示意图：</p>
+<p>[python] view plain copy 在CODE上查看代码片派生到我的代码片<br>layers {<br>  name: “conv1”<br>  type: CONVOLUTION<br>  bottom: “data”<br>  top: “conv1”<br>  blobs_lr: 1<br>  blobs_lr: 2<br>  weight_decay: 1<br>  weight_decay: 0<br>  convolution_param {<br>    num_output: 96<br>    kernel_size: 7<br>    stride: 4<br>    weight_filler {<br>      type: “gaussian”<br>      std: 0.01<br>    }<br>    bias_filler {<br>      type: “constant”<br>      value: 0<br>    }<br>  }<br>}<br>layers {<br>  name: “relu1”<br>  type: RELU<br>  bottom: “conv1”<br>  top: “conv1”<br>}<br>layers {<br>  name: “pool1”<br>  type: POOLING<br>  bottom: “conv1”<br>  top: “pool1”<br>  pooling_param {<br>    pool: MAX<br>    kernel_size: 3<br>    stride: 2<br>  }<br>}<br>layers {<br>  name: “norm1”<br>  type: LRN<br>  bottom: “pool1”<br>  top: “norm1”<br>  lrn_param {<br>    local_size: 5<br>    alpha: 0.0001<br>    beta: 0.75<br>  }<br>}  </p>
+<p>(2)第二层：第二层的输入也就是96<em>28</em>28的单通道图片，因为我们上一步已经把三通道合在一起进行卷积了。第二层结构，选择256个滤波器，滤波器大小为5*5，卷积步长为1，这个也可以参考AlexNet的结构。池化也是选择跟上面的一样的参数。</p>
+<p>[python] view plain copy 在CODE上查看代码片派生到我的代码片<br>layers {<br>  name: “conv2”<br>  type: CONVOLUTION<br>  bottom: “norm1”<br>  top: “conv2”<br>  blobs_lr: 1<br>  blobs_lr: 2<br>  weight_decay: 1<br>  weight_decay: 0<br>  convolution_param {<br>    num_output: 256<br>    pad: 2<br>    kernel_size: 5<br>    weight_filler {<br>      type: “gaussian”<br>      std: 0.01<br>    }<br>    bias_filler {<br>      type: “constant”<br>      value: 1<br>    }<br>  }<br>}<br>layers {<br>  name: “relu2”<br>  type: RELU<br>  bottom: “conv2”<br>  top: “conv2”<br>}<br>layers {<br>  name: “pool2”<br>  type: POOLING<br>  bottom: “conv2”<br>  top: “pool2”<br>  pooling_param {<br>    pool: MAX<br>    kernel_size: 3<br>    stride: 2<br>  }<br>}<br>layers {<br>  name: “norm2”<br>  type: LRN<br>  bottom: “pool2”<br>  top: “norm2”<br>  lrn_param {<br>    local_size: 5<br>    alpha: 0.0001<br>    beta: 0.75<br>  }<br>}<br>(3)第三层：滤波器个数选择384，卷积核大小为3*3。</p>
+<p>[python] view plain copy 在CODE上查看代码片派生到我的代码片<br>layers {<br>  name: “conv3”<br>  type: CONVOLUTION<br>  bottom: “norm2”<br>  top: “conv3”<br>  blobs_lr: 1<br>  blobs_lr: 2<br>  weight_decay: 1<br>  weight_decay: 0<br>  convolution_param {<br>    num_output: 384<br>    pad: 1<br>    kernel_size: 3<br>    weight_filler {<br>      type: “gaussian”<br>      std: 0.01<br>    }<br>    bias_filler {<br>      type: “constant”<br>      value: 0<br>    }<br>  }<br>}<br>layers {<br>  name: “relu3”<br>  type: RELU<br>  bottom: “conv3”<br>  top: “conv3”<br>}<br>layers {<br>  name: “pool5”<br>  type: POOLING<br>  bottom: “conv3”<br>  top: “pool5”<br>  pooling_param {<br>    pool: MAX<br>    kernel_size: 3<br>    stride: 2<br>  }<br>}<br>(4)第四层：第一个全连接层，神经元个数选择512。</p>
+<p>[python] view plain copy 在CODE上查看代码片派生到我的代码片<br>layers {<br>  name: “fc6”<br>  type: INNER_PRODUCT<br>  bottom: “pool5”<br>  top: “fc6”<br>  blobs_lr: 1<br>  blobs_lr: 2<br>  weight_decay: 1<br>  weight_decay: 0<br>  inner_product_param {<br>    num_output: 512<br>    weight_filler {<br>      type: “gaussian”<br>      std: 0.005<br>    }<br>    bias_filler {<br>      type: “constant”<br>      value: 1<br>    }<br>  }<br>}<br>layers {<br>  name: “relu6”<br>  type: RELU<br>  bottom: “fc6”<br>  top: “fc6”<br>}<br>layers {<br>  name: “drop6”<br>  type: DROPOUT<br>  bottom: “fc6”<br>  top: “fc6”<br>  dropout_param {<br>    dropout_ratio: 0.5<br>  }<br>}  </p>
+<p>(5)第五层：第二个全连接层，神经元个数也是选择512。</p>
+<p>[python] view plain copy 在CODE上查看代码片派生到我的代码片<br>layers {<br>  name: “fc7”<br>  type: INNER_PRODUCT<br>  bottom: “fc6”<br>  top: “fc7”<br>  blobs_lr: 1<br>  blobs_lr: 2<br>  weight_decay: 1<br>  weight_decay: 0<br>  inner_product_param {<br>    num_output: 512<br>    weight_filler {<br>      type: “gaussian”<br>      std: 0.005<br>    }<br>    bias_filler {<br>      type: “constant”<br>      value: 1<br>    }<br>  }<br>}<br>layers {<br>  name: “relu7”<br>  type: RELU<br>  bottom: “fc7”<br>  top: “fc7”<br>}<br>layers {<br>  name: “drop7”<br>  type: DROPOUT<br>  bottom: “fc7”<br>  top: “fc7”<br>  dropout_param {<br>    dropout_ratio: 0.5<br>  }<br>}  </p>
+<p>(6)第六次：输出层，对于性别来说是二分类，输入神经元个数为2。</p>
+<p>[python] view plain copy 在CODE上查看代码片派生到我的代码片<br>layers {<br>  name: “fc8”<br>  type: INNER_PRODUCT<br>  bottom: “fc7”<br>  top: “fc8”<br>  blobs_lr: 10<br>  blobs_lr: 20<br>  weight_decay: 1<br>  weight_decay: 0<br>  inner_product_param {<br>    num_output: 2<br>    weight_filler {<br>      type: “gaussian”<br>      std: 0.01<br>    }<br>    bias_filler {<br>      type: “constant”<br>      value: 0<br>    }<br>  }<br>}<br>layers {<br>  name: “accuracy”<br>  type: ACCURACY<br>  bottom: “fc8”<br>  bottom: “label”<br>  top: “accuracy”<br>  include: { phase: TEST }<br>}<br>layers {<br>  name: “loss”<br>  type: SOFTMAX_LOSS<br>  bottom: “fc8”<br>  bottom: “label”<br>  top: “loss”<br>}  </p>
+<p>网络方面，paper没有什么创新点，模仿AlexNet结构。</p>
+<p>2、网络训练</p>
+<p>(1)初始化参数：权重初始化方法采用标准差为0.01，均值为0的高斯正太分布。</p>
+<p>(2)网络训练：采用dropout，来限制过拟合。Drop out比例采用0.5，还有就是数据扩充，数据扩充石通过输入256<em>256的图片，然后进行随机裁剪，裁剪为227</em>227的图片，当然裁剪要以face中心为基础，进行裁剪。</p>
+<p>(3)训练方法采用，随机梯度下降法，min-batch 大小选择50，学习率大小0.001，然后当迭代到10000次以后，把学习率调为0.0001。</p>
+<p>(4)结果预测：预测方法采用输入一张256<em>256的图片，然后进行裁剪5张图片为227</em>227大小，其中四张图片的裁剪方法分别采用以256*256的图片的4个角为基点点，进行裁剪。然后最后一张，以人脸的中心为基点进行裁剪。然后对这5张图片进行预测，最后对预测结果进行平均。</p>
+<p>三、实际应用</p>
+<p>　　文献作者给我们提供，可以到Caffe zoo model：<a href="https://github.com/BVLC/caffe/wiki/Model-Zoo" target="_blank" rel="noopener">https://github.com/BVLC/caffe/wiki/Model-Zoo</a>  或者文献的主页：<a href="http://www.openu.ac.il/home/hassner/projects/cnn_agegender/。下载相关训练好的模型，paper性别、年龄预测的应用场景比较复杂，都是一些非常糟糕的图片，比较模糊的图片等，所以如果我们想要直接利用paper训练好的模型，用到我们自己的项目上，可能精度会比较低。我测试了一下，直接使用paper给的模型，在我的数据上进行测试，我的数据是中国人、，然后也比较清晰，直接用作者训练好的模型，精度为0.82左右，这个精度对于我们实际的工程应用还差很远。后面就要发挥自己的调参、技巧把精度提高上去，才能达到95%以上的精度，具体因为项目保密，所以不再啰嗦。最后预测结果如下：" target="_blank" rel="noopener">http://www.openu.ac.il/home/hassner/projects/cnn_agegender/。下载相关训练好的模型，paper性别、年龄预测的应用场景比较复杂，都是一些非常糟糕的图片，比较模糊的图片等，所以如果我们想要直接利用paper训练好的模型，用到我们自己的项目上，可能精度会比较低。我测试了一下，直接使用paper给的模型，在我的数据上进行测试，我的数据是中国人、，然后也比较清晰，直接用作者训练好的模型，精度为0.82左右，这个精度对于我们实际的工程应用还差很远。后面就要发挥自己的调参、技巧把精度提高上去，才能达到95%以上的精度，具体因为项目保密，所以不再啰嗦。最后预测结果如下：</a></p>
+<p>　　　　　　　</p>
+<p>测试精度：</p>
+<p>总结：看完这篇文献，感觉没看到什么比较牛逼的创新点，只是把Alexnet网络改一改而已，个人感觉AlexNet的一些算法已经过时了，现在各种最新牛逼文献的算法一大堆，随便找一个，调一调参，应该可以得到更高的精度，因为毕竟图片分类的算法更新太快了。年龄预测方面，因为自己的项目用不到，而且年龄预测这个东西，精度一向很低，很容易受光照、拍摄角度等因素影响，即便是我们人类，也很难精确判断一个人的年龄，有的人五十几岁了，但是看起来却很年轻……</p>
+<p>PS：赶紧研究深度学习算法去，现在大部分深度学习的文章，有的文献只是稍微改一下参数、改一下结构，然后发现精度state-of-art，于是发表paper，很容易就被录用了。</p>
+<p>参考文献：</p>
+<p>1、《Age and Gender Classification using Convolutional Neural Networks》</p>
+<p>2、《ImageNet Classification with Deep Convolutional Neural Networks》</p>
+<p>3、<a href="http://www.openu.ac.il/home/hassner/projects/cnn_agegender/" target="_blank" rel="noopener">http://www.openu.ac.il/home/hassner/projects/cnn_agegender/</a></p>
+<p>４、<a href="https://github.com/BVLC/caffe/wiki/Model-Zoo" target="_blank" rel="noopener">https://github.com/BVLC/caffe/wiki/Model-Zoo</a> </p>
+<p><strong><strong><strong>***</strong></strong></strong>作者：hjimce   时间：2015.10.15  联系QQ：1393852684 <strong><strong><strong>***</strong></strong></strong>  </p>
+<p><strong><strong><strong>**</strong></strong></strong>原创文章，转载请保留原文地址、作者等信息<strong><strong><strong>***</strong></strong></strong></p>
+<p>附：基于 CNN的年龄和性别检测 </p>
+<pre><code>CNN年龄、性别、表情识别
+
+Age and Gender Classification using Convolutional Neural Networks
+
+     project link：http://www.openu.ac.il/home/hassner/projects/cnn_agegender/
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CNN-年龄和性别检测/" rel="tag"># CNN,年龄和性别检测</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/06/windows下安装tensorflow/" rel="next" title="windows下安装Tensorflow">
+                <i class="fa fa-chevron-left"></i> windows下安装Tensorflow
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/06/表情识别数据集/" rel="prev" title="表情识别数据集整理">
+                表情识别数据集整理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg5Ny8xMzQzMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">TinaCristal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">455</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TinaCristal" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="is.yatingsun@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinaCristal</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
